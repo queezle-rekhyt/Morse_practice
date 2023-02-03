@@ -19,17 +19,20 @@
     <!----- main ----->
     <article>
     <div>トンツーのランダム生成と再生</div>
-    お知らせ　2/3 18:06 「ヘ」「ム」「゛」の後に若干の待機時間を導入(調整中)
+    お知らせ
+    <br>
+    2/3 18:06 「ヘ」「ム」「゛」「ラ」の後に若干の待機時間を導入(調整中)
+    2/4 00:18 再生中に一時中断or停止ボタンを押すと、ページ更新(初期化)する仕様に変更
     <br>
     <button onclick = "window.location.reload();">
       ページ更新
-      </button>←挙動がおかしいと思ったらページ更新しときゃ直る
+      </button>
       <br><br>
     <section>
       <div id="running">
       </div>
       <br>
-    <textarea id="textarea3" class="test" cols="60%" rows="12%" name="content" required="required">ヌナヌナホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウヰノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー」？、゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウヰノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー」？、゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウヰノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー」？、゛゜）１２３４５６７８９０イロ</textarea>
+    <textarea id="textarea3" class="test" cols="45%" rows="12%" name="content" required="required">ヌナヌナホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウヰノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー」？、゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウヰノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー」？、゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウヰノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー」？、゛゜）１２３４５６７８９０イロ</textarea>
 <br>
 <button onclick = "randome()">
   ランダム生成
@@ -142,7 +145,7 @@
     <!----- /main ----->
     要望・お問い合わせ→<a href="https://page.line.me/?accountId=024fyizs">こちら</a>
     <br>
-    ソースコードはこちら→<a href="https://github.com/queezle-rekhyt/Morse_practice">GitHub</a>
+    ソースコード→<a href="https://github.com/queezle-rekhyt/Morse_practice">こちら</a>
     </body>
     <script>
 
@@ -276,6 +279,7 @@ m.onPlay = function () {
     var txt = document.getElementById("textarea3").value;
     txt = txt.replace(/ヘ/g, 'ヘ　　');
     txt = txt.replace(/ム/g, 'ム　　');
+    txt = txt.replace(/ラ/g, 'ラ　');
     //゛゛/nでない「゛」を「゛　」に変換する
     txt = txt.replace(/゛/g, '゛　');
     txt = txt.replace(/゛　゛　\r?\n/g, '゛゛\n');

@@ -7,7 +7,7 @@
  *  The MIT license applies.
  */
     function jscw (params) {
-
+        var stop_flag = false;
         var download_svg = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4LjciIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCA4LjcgMTAiPjxwYXRoIHN0eWxlPSJzdHJva2U6IzAwMDtzdHJva2Utd2lkdGg6MC4yNnB4OyIgZD0ibSA0LjQsMi41IHYgNC43IGwgMS42LC0xLjYgdiAwLjMgbCAtMS42NywxLjY3IC0xLjY3LC0xLjY3IHYgLTAuMyBsIDEuNTYsMS42IDAsLTQuNyB6IiAvPjxwYXRoIHN0eWxlPSJzdHJva2U6IzAwMDtzdHJva2Utd2lkdGg6MC40OyIgZD0iTSAyLjUsOCBIIDYuMSIgLz48L3N2Zz4K";
         var play_svg = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj48cGF0aCBkPSJNMyAyIEwzIDggTDcgNSBaIiBzdHlsZT0iZmlsbDojZmZmO3N0cm9rZS13aWR0aDowLjM7c3Ryb2tlOiMwMDA7c3Ryb2tlLWxpbmVqb2luOmJldmVsOyIvPjwvc3ZnPgo=";
         var pause_svg = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj48c3R5bGU+LmF7ZmlsbDojZmZmO3N0cm9rZS13aWR0aDowLjM7c3Ryb2tlOiMwMDA7fTwvc3R5bGU+PHJlY3Qgd2lkdGg9IjEuNiIgaGVpZ2h0PSI1IiB4PSIzIiB5PSIyLjUiIHJ5PSIwLjQiIGNsYXNzPSJhIi8+PHJlY3Qgd2lkdGg9IjEuNiIgaGVpZ2h0PSI1IiB4PSI1LjQiIHk9IjIuNSIgcnk9IjAuNCIgY2xhc3M9ImEiLz48L3N2Zz4K";
@@ -684,6 +684,7 @@
 
             if (this.onPlay) {
                 console.log("OnPlay");
+                stop_flag = false;
                 this.onPlay();
             }
 
@@ -806,11 +807,13 @@
                 this.paused = true;
                 this.audioCtx.suspend();
                 clearTimeout(this.finishedTimeout);
+                stop_flag = true;
             }
             else {
                 this.paused = false;
                 this.audioCtx.resume();
                 this.finishedTimeout = setTimeout(this.onFinished, this.getRemaining()*1000);
+                stop_flag = false;
             }
             console.log("paused: " + this.paused);
         }
@@ -821,8 +824,10 @@
                 this.gainNode.gain.setValueAtTime(0, this.audioCtx.currentTime);
                 this.playEnd = 0;
                 clearTimeout(this.finishedTimeout);
+                stop_flag = true;
             }
             else {
+                stop_flag = true;
                 this.player.pause();
             }
         }
@@ -841,9 +846,19 @@
         var s = 0;
         this.onCharacterPlay = function (c,s) {
                 //console.log("onCharacterPlay"+s);
-                    console.log(s);
+                //console.log(s);
+                try {
+                    if (stop_flag) {
+                        throw new Error('終了します');
+                    }
+                    console.log('実行されないコード');
                     txt = c["c"].replace(/　/g, '');
                     textModMsg.innerText = textModMsg.innerText+txt;
+                } catch (e) {
+                    document.location.reload();
+                    console.log(e.message);
+                }
+
         }
 
         this.setCharacterCb = function (c, t, s) {
