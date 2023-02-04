@@ -182,8 +182,8 @@
         var el_len = { ".": 1, "-": 3, " ": 1 };
 
         this.controls_options = {
-            "wpm_min": 5, "wpm_max": 50, 
-            "eff_min": 0, "eff_max": 50, 
+            "wpm_min": 5, "wpm_max": 25, 
+            "eff_min": 0, "eff_max": 19, 
             "ews_min": 0, "ews_max": 5, 
             "freq_min": 300, "freq_max": 1500,
             "edge_min": 1, "edge_max": 25,
@@ -1051,12 +1051,12 @@
                         obj.enableControls(obj, true);
                    }
                 }
-                else {
-                    if (obj.btn_pp.src != pause_svg) {
-                        obj.btn_pp.src = pause_svg;
-                        obj.enableControls(obj, false);
-                    }
-                }
+                // else {
+                //     if (obj.btn_pp.src != pause_svg) {
+                //         obj.btn_pp.src = pause_svg;
+                //         obj.enableControls(obj, false);
+                //     }
+                // }
 
 
             }
@@ -1123,7 +1123,7 @@
             btn_pp.style.verticalAlign = "middle";
             btn_pp.style.textDecoration = "none";
             btn_pp.style.color = "#000000";
-            btn_pp.style.width = "25px";
+            btn_pp.style.width = "65px";
             btn_pp.style.height = "25px";
             obj.btn_pp = btn_pp;
             btn_pp.onclick = function () {
@@ -1149,71 +1149,71 @@
             btn_stop.style.color = "#000000";
             btn_stop.src = stop_svg;
             btn_stop.title = "Stop";
-            btn_stop.style.width = "25px";
+            btn_stop.style.width = "65px";
             btn_stop.style.height = "25px";
             btn_stop.onclick = function () {
                 obj.stop();
             }
             var btn_down = document.createElement("a");
             var btn_down_img = document.createElement("img");
-            btn_down_img.style.borderRadius = "3px";
-            btn_down_img.style.backgroundColor = "#dadada";
-            btn_down_img.style.cursor = "pointer";
-            btn_down_img.style.border = "1px solid #555555";
-            btn_down_img.style.textAlign = "center";
-            btn_down_img.style.padding = "0px 0px";
-            btn_down_img.style.margin = "4px";
-            btn_down_img.style.display = "inline-block";
-            btn_down_img.style.verticalAlign = "middle";
-            btn_down_img.style.textDecoration = "none";
-            btn_down_img.style.color = "#000000";
-            btn_down_img.src = download_svg; 
-            btn_down_img.style.width = "25px";
-            btn_down_img.style.height = "25px";
-            btn_down.appendChild(btn_down_img);
-            btn_down.title = "Download MP3";
-            obj.btn_down = btn_down;
-            btn_down.onclick = function () {
-                obj.setText(obj.text);
-            }
+            //btn_down_img.style.borderRadius = "3px";
+            //btn_down_img.style.backgroundColor = "#dadada";
+            // btn_down_img.style.cursor = "pointer";
+            // btn_down_img.style.border = "1px solid #555555";
+            // btn_down_img.style.textAlign = "center";
+            // btn_down_img.style.padding = "0px 0px";
+            // btn_down_img.style.margin = "4px";
+            // btn_down_img.style.display = "inline-block";
+            // btn_down_img.style.verticalAlign = "middle";
+            // btn_down_img.style.textDecoration = "none";
+            //btn_down_img.style.color = "#000000";
+            //btn_down_img.src = download_svg; 
+            // btn_down_img.style.width = "25px";
+            // btn_down_img.style.height = "25px";
+            // btn_down.appendChild(btn_down_img);
+            // btn_down.title = "Download MP3";
+            // obj.btn_down = btn_down;
+            // btn_down.onclick = function () {
+            //     obj.setText(obj.text);
+            // }
 
             var btn_set = document.createElement("a");
             btn_set.style.position = "relative";
             btn_set.style.display = "inline-block";
 
             var btn_set_img = document.createElement("img");
-            btn_set_img.style.borderRadius = "3px";
-            btn_set_img.style.backgroundColor = "#dadada";
-            btn_set_img.style.cursor = "pointer";
-            btn_set_img.style.border = "1px solid #555555";
-            btn_set_img.style.textAlign = "center";
-            btn_set_img.style.padding = "0px 0px";
-            btn_set_img.style.margin = "4px";
-            btn_set_img.style.display = "inline-block";
-            btn_set_img.style.verticalAlign = "middle";
-            btn_set_img.style.textDecoration = "none";
-            btn_set_img.style.color = "#000000";
-            btn_set_img.src = settings_svg; 
-            btn_set_img.style.width = "25px";
-            btn_set_img.style.height = "25px";
-            obj.btn_set_img = btn_set_img;
+            // btn_set_img.style.borderRadius = "3px";
+            // btn_set_img.style.backgroundColor = "#dadada";
+            // btn_set_img.style.cursor = "pointer";
+            // btn_set_img.style.border = "1px solid #555555";
+            // btn_set_img.style.textAlign = "center";
+            // btn_set_img.style.padding = "0px 0px";
+            // btn_set_img.style.margin = "4px";
+            // btn_set_img.style.display = "inline-block";
+            // btn_set_img.style.verticalAlign = "middle";
+            // btn_set_img.style.textDecoration = "none";
+            // btn_set_img.style.color = "#000000";
+            // btn_set_img.src = settings_svg; 
+            // btn_set_img.style.width = "25px";
+            // btn_set_img.style.height = "25px";
+            // obj.btn_set_img = btn_set_img;
 
             // popup dialog for settings
             var pop = document.createElement("span");
-            pop.style.width = "300px";
+            pop.style.width = "350px";
             pop.style.color = '#000000';
-            pop.style.backgroundColor = '#eaeaea';
-            pop.style.borderRadius = "6px";
-            pop.style.borderWidth = 'thin';
-            pop.style.borderStyle= 'solid';
+            //pop.style.backgroundColor = '#eaeaea';
+            //pop.style.borderRadius = "6px";
+            //pop.style.borderWidth = 'thin';
+            //pop.style.borderStyle= 'solid';
             pop.style.position = "absolute";
             pop.style.zIndex = "1";
-            pop.style.top = "30px";
-            pop.style.left = "30px";
-            pop.style.padding = "5px 5px";
-            pop.style.fontSize = "12px";
-            pop.style.visibility = "hidden";
-            pop.innerHTML = '<b>Settings</b>';
+            pop.style.top = "120px";
+            pop.style.left = "-165px";
+            //pop.style.padding = "3px 3px";
+            pop.style.fontSize = "16px";
+            pop.style.visibility = "show";
+            pop.innerHTML = '設定';
             obj.pop = pop;
 
             // controls go into a table
@@ -1230,14 +1230,18 @@
             speed.step = 1;
             speed.style.display = "inline-block";
             speed.style.verticalAlign = "middle";
-            speed.style.width = "150px";
-            speed.onchange = function () { obj.setWpm(this.value); }
+            speed.style.width = "175px";
+            var eff = document.createElement("input");
+            speed.onchange = function () {
+                obj.setWpm(this.value);
+                eff.max = this.value;
+            }
             speed.oninput = function () { obj.setWpm(this.value); }
 
             var speed_label = document.createElement("label");
             speed_label.id="speeder";
             speed_label.htmlFor = "speed";
-            speed_label.style.fontSize = "12px";
+            speed_label.style.fontSize = "16px";
             speed_label.innerHTML = "0 WpM";
             
             obj.control_labels["wpm"] = speed_label;
@@ -1245,14 +1249,14 @@
 
             var tr = tbl.insertRow();
             var td = tr.insertCell();
-            td.appendChild(document.createTextNode("Speed:"));
+            td.appendChild(document.createTextNode("速さ:"));
             td = tr.insertCell();
             td.appendChild(speed);
             td = tr.insertCell();
             td.appendChild(speed_label);
 
             // eff
-            var eff = document.createElement("input"); 
+            //var eff = document.createElement("input"); 
             eff.id = "eff";
             eff.type = "range";
             eff.min = obj.controls_options["eff_min"];
@@ -1261,13 +1265,13 @@
             eff.step = 1;
             eff.style.display = "inline-block";
             eff.style.verticalAlign = "middle";
-            eff.style.width = "150px";
+            eff.style.width = "175px";
             eff.onchange = function () { obj.setEff(this.value); }
             eff.oninput = function () { obj.setEff(this.value); }
 
             var eff_label = document.createElement("label");
             eff_label.htmlFor = "eff";
-            eff_label.style.fontSize = "12px";
+            eff_label.style.fontSize = "16px";
             eff_label.innerHTML = "0 WpM";
             
             obj.control_labels["eff"] = eff_label;
@@ -1275,7 +1279,7 @@
 
             tr = tbl.insertRow();
             td = tr.insertCell();
-            td.appendChild(document.createTextNode("eff. Speed:"));
+            td.appendChild(document.createTextNode("↑との差が大きいと音の間隔広め"));
             td = tr.insertCell();
             td.appendChild(eff);
             td = tr.insertCell();
@@ -1303,13 +1307,13 @@
             obj.control_labels["ews"] = ews_label;
             obj.control_inputs["ews"] = ews;
 
-            tr = tbl.insertRow();
-            td = tr.insertCell();
-            td.appendChild(document.createTextNode("Word space:"));
-            td = tr.insertCell();
-            td.appendChild(ews);
-            td = tr.insertCell();
-            td.appendChild(ews_label);
+            // tr = tbl.insertRow();
+            // td = tr.insertCell();
+            // td.appendChild(document.createTextNode("Word space:"));
+            // td = tr.insertCell();
+            // td.appendChild(ews);
+            // td = tr.insertCell();
+            // td.appendChild(ews_label);
 
             // freq
             var freq = document.createElement("input"); 
@@ -1321,13 +1325,13 @@
             freq.step = 1;
             freq.style.display = "inline-block";
             freq.style.verticalAlign = "middle";
-            freq.style.width = "150px";
+            freq.style.width = "175px";
             freq.onchange = function () { obj.setFreq(this.value); }
             freq.oninput = function () { obj.setFreq(this.value); }
 
             var freq_label = document.createElement("label");
             freq_label.htmlFor = "freq";
-            freq_label.style.fontSize = "12px";
+            freq_label.style.fontSize = "16px";
             freq_label.innerHTML = "600 Hz";
 
             obj.control_labels["freq"] = freq_label;
@@ -1335,7 +1339,7 @@
 
             tr = tbl.insertRow();
             td = tr.insertCell();
-            td.appendChild(document.createTextNode("Frequency:"));
+            td.appendChild(document.createTextNode("音の高さ"));
             td = tr.insertCell();
             td.appendChild(freq);
             td = tr.insertCell();
@@ -1343,76 +1347,76 @@
 
             // edge
             var edge = document.createElement("input"); 
-            edge.id = "edge";
-            edge.type = "range";
-            edge.min = obj.controls_options["edge_min"];
-            edge.max = obj.controls_options["edge_max"];
-            edge.value = obj.edge;
-            edge.step = 1;
-            edge.style.display = "inline-block";
-            edge.style.verticalAlign = "middle";
-            edge.style.width = "150px";
-            edge.onchange = function () { obj.setQ(this.value); }
-            edge.oninput = function () { obj.setQ(this.value); }
+            // edge.id = "edge";
+            // edge.type = "range";
+            // edge.min = obj.controls_options["edge_min"];
+            // edge.max = obj.controls_options["edge_max"];
+            // edge.value = obj.edge;
+            // edge.step = 1;
+            // edge.style.display = "inline-block";
+            // edge.style.verticalAlign = "middle";
+            // edge.style.width = "150px";
+            // edge.onchange = function () { obj.setQ(this.value); }
+            // edge.oninput = function () { obj.setQ(this.value); }
 
             var edge_label = document.createElement("label");
-            edge_label.htmlFor = "edge";
-            edge_label.style.fontSize = "12px";
-            edge_label.innerHTML = "10";
+            // edge_label.htmlFor = "edge";
+            // edge_label.style.fontSize = "12px";
+            // edge_label.innerHTML = "10";
 
-            obj.control_labels["edge"] = edge_label;
-            obj.control_inputs["edge"] = edge;
+            // obj.control_labels["edge"] = edge_label;
+            // obj.control_inputs["edge"] = edge;
 
-            tr = tbl.insertRow();
-            td = tr.insertCell();
-            td.appendChild(document.createTextNode("Edge:"));
-            td = tr.insertCell();
-            td.appendChild(edge);
-            td = tr.insertCell();
-            td.appendChild(edge_label);
+            // tr = tbl.insertRow();
+            // td = tr.insertCell();
+            // td.appendChild(document.createTextNode("Edge:"));
+            // td = tr.insertCell();
+            // td.appendChild(edge);
+            // td = tr.insertCell();
+            // td.appendChild(edge_label);
 
             // volume
             var vol = document.createElement("input"); 
-            vol.id = "vol";
-            vol.type = "range";
-            vol.min = obj.controls_options["volume_min"];
-            vol.max = obj.controls_options["volume_max"];
-            vol.value = obj.playvolume * 100;
-            vol.step = 1;
-            vol.style.display = "inline-block";
-            vol.style.verticalAlign = "middle";
-            vol.style.width = "150px";
-            vol.onchange = function () { obj.setVolume(this.value/100); }
-            vol.oninput = function () { obj.setVolume(this.value/100); }
+            // vol.id = "vol";
+            // vol.type = "range";
+            // vol.min = obj.controls_options["volume_min"];
+            // vol.max = obj.controls_options["volume_max"];
+            // vol.value = obj.playvolume * 100;
+            // vol.step = 1;
+            // vol.style.display = "inline-block";
+            // vol.style.verticalAlign = "middle";
+            // vol.style.width = "150px";
+            // vol.onchange = function () { obj.setVolume(this.value/100); }
+            // vol.oninput = function () { obj.setVolume(this.value/100); }
 
             var vol_label = document.createElement("label");
-            vol_label.htmlFor = "vol";
-            vol_label.style.fontSize = "12px";
-            vol_label.innerHTML = "50%";
+            // vol_label.htmlFor = "vol";
+            // vol_label.style.fontSize = "12px";
+            // vol_label.innerHTML = "50%";
 
-            obj.control_labels["vol"] = vol_label;
-            obj.control_inputs["vol"] = vol;
+            // obj.control_labels["vol"] = vol_label;
+            // obj.control_inputs["vol"] = vol;
             
-            tr = tbl.insertRow();
-            td = tr.insertCell();
-            td.appendChild(document.createTextNode("Volume:"));
-            td = tr.insertCell();
-            td.appendChild(vol);
-            td = tr.insertCell();
-            td.appendChild(vol_label);
+            // tr = tbl.insertRow();
+            // td = tr.insertCell();
+            // td.appendChild(document.createTextNode("Volume:"));
+            // td = tr.insertCell();
+            // td.appendChild(vol);
+            // td = tr.insertCell();
+            // td.appendChild(vol_label);
 
-            if (this.help_url) {
-                tr = tbl.insertRow();
-                td = tr.insertCell();
-                td.style.textAlign = 'end';
-                td.colSpan = 3;
-                var a = document.createElement('a');
-                var t = document.createTextNode(this.help_text);
-                a.style.fontSize = '11px';
-                a.href = this.help_url;
-                a.appendChild(t);
-                td.appendChild(a);
-            }
+            // if (this.help_url) {
+            //     tr = tbl.insertRow();
+            //     td = tr.insertCell();
+            //     td.style.textAlign = 'end';
+            //     td.colSpan = 3;
+            //     var a = document.createElement('a');
+            //     var t = document.createTextNode(this.help_text);
+            //     a.style.fontSize = '11px';
+            //     a.href = this.help_url;
+            //     a.appendChild(t);
+            //     td.appendChild(a);
+            // }
 
             pop.appendChild(tbl);
 
@@ -1446,7 +1450,7 @@
             else {
                 console.log("hide");
                 this.btn_set_img.src = settings_svg;
-                this.pop.style.visibility = "hidden";
+                this.pop.style.visibility = "show";
             }
         }
 

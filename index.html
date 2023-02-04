@@ -6,7 +6,6 @@
     </title>
     <meta name="description" content="ディスクリプションを入力">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <script src="js/jquery-3.6.3.min.js"></script>
     <script src="js/jscwlib.js"></script>
     <style>
@@ -19,20 +18,17 @@
     <!----- main ----->
     <article>
     <div>トンツーのランダム生成と再生</div>
-    お知らせ
-    <br>
-    2/3 18:06 「ヘ」「ム」「゛」「ラ」の後に若干の待機時間を導入(調整中)
-    2/4 00:18 再生中に一時中断or停止ボタンを押すと、ページ更新(初期化)する仕様に変更
-    <br>
-    <button onclick = "window.location.reload();">
+    <script>
+      //console.log("速度"+document.getElementById("speeder"));
+    </script>
+    <!-- <button onclick = "window.location.reload();">
       ページ更新
-      </button>
-      <br><br>
+      </button> -->
     <section>
       <div id="running">
       </div>
       <br>
-    <textarea id="textarea3" class="test" cols="45%" rows="12%" name="content" required="required">ヌナヌナホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウヰノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー」？、゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウヰノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー」？、゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウヰノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー」？、゛゜）１２３４５６７８９０イロ</textarea>
+    <textarea id="textarea3" class="test" cols="43%" rows="12%" name="content" required="required">ヌナヌナホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウヰノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー」？、゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウヰノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー」？、゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウヰノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー」？、゛゜）１２３４５６７８９０イロ</textarea>
 <br>
 <button onclick = "randome()">
   ランダム生成
@@ -40,19 +36,20 @@
     <!-- <button onclick = "rensyu()">
     書き取り練習
     </button> -->
-    <button onclick="readAloud()">通話表の読み上げ</button>
-    <button onclick = "teishi()">通話表の読み上げ停止</button>
+    <button onclick="readAloud()">通話表読み上げ</button>
+    <button onclick = "teishi()">通話表読み上げ停止</button><br>
     <div id="player"></div>
     <script>
-    var m = new jscw({"wpm": 19,"ews":0.5});
+    var m = new jscw({"wpm": 19,"ews":0.5,"eff":19});
     m.renderPlayer('player', m);
     </script>
+    <hr>
     文の長さ<br>
-    <input type="range" id="example" value="30" min="1" max="35" step="1" style="width:60%;margin-left:15px";><span id="current-value"></span>
-    <br><br>生成する文字を選択<br>
-
+    <input type="range" id="example" value="30" min="1" max="35" step="1" style="width:60%;margin-left:5px";><span id="current-value"></span>
+    <hr><br><br><br><br><br>
+    <br><br><hr>生成する文字を選択<br>
     <input type="checkbox" id="checkbox_all" checked="checked">全選択 / 全解除
-        <hr>
+        
 
         <p>ア<input type="checkbox" class="checkbox_list" name="" value="ア" checked="checked">
           イ<input type="checkbox" class="checkbox_list" name="" value="イ" checked="checked">
@@ -143,8 +140,6 @@
     </section>
     </article>
     <!----- /main ----->
-    要望・お問い合わせ→<a href="https://page.line.me/?accountId=024fyizs">こちら</a>
-    <br>
     ソースコード→<a href="https://github.com/queezle-rekhyt/Morse_practice">こちら</a>
     </body>
     <script>
