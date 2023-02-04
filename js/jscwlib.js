@@ -182,8 +182,8 @@
         var el_len = { ".": 1, "-": 3, " ": 1 };
 
         this.controls_options = {
-            "wpm_min": 5, "wpm_max": 25, 
-            "eff_min": 0, "eff_max": 19, 
+            "wpm_min": 5, "wpm_max": 30, 
+            "eff_min": 0, "eff_max": 30, 
             "ews_min": 0, "ews_max": 5, 
             "freq_min": 300, "freq_max": 1500,
             "edge_min": 1, "edge_max": 25,
@@ -1053,7 +1053,8 @@
 
                     //console.log("1分間に何文字か"+(document.getElementById('textarea3').value.replace(/\r?\n/g,"").length)/(c1[0]*60+Number(c1[1]))*60);
                     c1=(document.getElementById('textarea3').value.replace(/\r?\n/g,"").length)/(c1[0]*60+Number(c1[1]))*60;
-                    c1 = Math.round(c1)
+                    console.log(c1);
+                    c1 = Math.floor(c1)
                     document.getElementById('hunmoji').innerText="\n"+c1+"文字／分";
                 }
 
@@ -1248,6 +1249,7 @@
             var eff_label = document.createElement("label");
             speed.onchange = function () {
                 obj.setWpm(this.value);
+                obj.setEff(this.value)
                 eff.max = speed.value;
                 eff.value= speed.value;
                 eff_label.innerHTML = speed.value+" WpM";
