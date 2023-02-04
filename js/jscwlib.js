@@ -1022,6 +1022,7 @@
             window.setInterval(this.progressbarUpdate, 100, this)
         }
 
+
         this.progressbarUpdate = function (obj) {
             if (obj.progressbar) {
                 if (obj.mode == 'audio') {
@@ -1044,6 +1045,18 @@
                 sec = Math.abs(sec);
                 
                 obj.progresslabel.innerHTML = obj.fmtTime(sec, sign) + " /" + obj.fmtTime(obj.getLength() - obj.textStart,"");
+
+                    //console.log("長さ"+obj.fmtTime(obj.getLength() - obj.textStart,""));
+                    // console.log("文字数"+document.getElementById('textarea3').value.replace(/\r?\n/g,"").length);
+                    if(obj.fmtTime(obj.getLength() - obj.textStart,"")!=" 0:00"){
+                    var c1 = obj.fmtTime(obj.getLength() - obj.textStart,"").split(":");
+
+                    //console.log("1分間に何文字か"+(document.getElementById('textarea3').value.replace(/\r?\n/g,"").length)/(c1[0]*60+Number(c1[1]))*60);
+                    c1=(document.getElementById('textarea3').value.replace(/\r?\n/g,"").length)/(c1[0]*60+Number(c1[1]))*60;
+                    c1 = Math.round(c1)
+                    document.getElementById('hunmoji').innerText="\n"+c1+"文字／分";
+                }
+
 
                 if (obj.paused || obj.getRemaining() == 0) {
                     if (obj.btn_pp.src != play_svg) {
@@ -1232,9 +1245,12 @@
             speed.style.verticalAlign = "middle";
             speed.style.width = "175px";
             var eff = document.createElement("input");
+            var eff_label = document.createElement("label");
             speed.onchange = function () {
                 obj.setWpm(this.value);
-                eff.max = this.value;
+                eff.max = speed.value;
+                eff.value= speed.value;
+                eff_label.innerHTML = speed.value+" WpM";
             }
             speed.oninput = function () { obj.setWpm(this.value); }
 
@@ -1269,7 +1285,7 @@
             eff.onchange = function () { obj.setEff(this.value); }
             eff.oninput = function () { obj.setEff(this.value); }
 
-            var eff_label = document.createElement("label");
+            //var eff_label = document.createElement("label");
             eff_label.htmlFor = "eff";
             eff_label.style.fontSize = "16px";
             eff_label.innerHTML = "0 WpM";
@@ -1284,7 +1300,6 @@
             td.appendChild(eff);
             td = tr.insertCell();
             td.appendChild(eff_label);
-
             // ews
             var ews = document.createElement("input"); 
             ews.id = "ews";
