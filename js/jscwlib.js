@@ -1267,7 +1267,7 @@
 
             var tr = tbl.insertRow();
             var td = tr.insertCell();
-            td.appendChild(document.createTextNode("速さ:"));
+            td.appendChild(document.createTextNode("速さ"));
             td = tr.insertCell();
             td.appendChild(speed);
             td = tr.insertCell();
@@ -1297,7 +1297,7 @@
 
             tr = tbl.insertRow();
             td = tr.insertCell();
-            td.appendChild(document.createTextNode("↑との差が大きいと音の間隔広め"));
+            td.appendChild(document.createTextNode("間隔"));
             td = tr.insertCell();
             td.appendChild(eff);
             td = tr.insertCell();
@@ -1356,7 +1356,7 @@
 
             tr = tbl.insertRow();
             td = tr.insertCell();
-            td.appendChild(document.createTextNode("音の高さ"));
+            td.appendChild(document.createTextNode("高さ"));
             td = tr.insertCell();
             td.appendChild(freq);
             td = tr.insertCell();
