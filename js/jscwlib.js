@@ -1053,7 +1053,7 @@
                     var c1 = obj.fmtTime(obj.getLength() - obj.textStart,"").split(":");
 
                     //console.log("1分間に何文字か"+(document.getElementById('textarea3').value.replace(/\r?\n/g,"").length)/(c1[0]*60+Number(c1[1]))*60);
-                    c1=(document.getElementById('textarea3').value.replace(/\r?\n/g,"").length)/(c1[0]*60+Number(c1[1])+2)*60;
+                    c1=(document.getElementById('textarea3').value.replace(/\r?\n/g,"").length)/(c1[0]*60+Number(c1[1])-2)*60;
                     //console.log(c1);
                     c1 = Math.floor(c1)
                     document.getElementById('hunmoji').innerText="\n"+c1+"文字／分";
