@@ -185,7 +185,7 @@
 
         this.controls_options = {
             "wpm_min": 5, "wpm_max": 30, 
-            "eff_min": 0, "eff_max": 30, 
+            "eff_min": 0, "eff_max": 17, 
             "ews_min": 0, "ews_max": 5, 
             "freq_min": 300, "freq_max": 1500,
             "edge_min": 1, "edge_max": 25,
@@ -195,8 +195,8 @@
         this.control_labels = {};
         this.control_inputs = {};
 
-        this.wpm = 20;
-        this.eff = 0;
+        this.wpm = 17;
+        this.eff = 17;
         this.ews = 0;           // extra word space
         this.freq = 600;
         this.volume = 0.5;      // relative volume how CW is generated internally
