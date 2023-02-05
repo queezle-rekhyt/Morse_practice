@@ -1260,7 +1260,7 @@
             var speed_label = document.createElement("label");
             speed_label.id="speeder";
             speed_label.htmlFor = "speed";
-            speed_label.style.fontSize = "16px";
+            //speed_label.style.fontSize = "16px";
             speed_label.innerHTML = "0 WpM";
             
             obj.control_labels["wpm"] = speed_label;
@@ -1290,7 +1290,7 @@
 
             //var eff_label = document.createElement("label");
             eff_label.htmlFor = "eff";
-            eff_label.style.fontSize = "16px";
+            //eff_label.style.fontSize = "16px";
             eff_label.innerHTML = "0 WpM";
             
             obj.control_labels["eff"] = eff_label;
@@ -1319,7 +1319,7 @@
 
             var ews_label = document.createElement("label");
             ews_label.htmlFor = "ews";
-            ews_label.style.fontSize = "12px";
+            //ews_label.style.fontSize = "12px";
             ews_label.innerHTML = "0";
             
             obj.control_labels["ews"] = ews_label;
