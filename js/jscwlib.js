@@ -122,6 +122,7 @@
             "セ": ".---.", "せ": ".---.",  /* se */
             "ス": "---.-", "す": "---.-",  /* su */
             "ン": ".-.-.", "ん": ".-.-.",  /* n  */
+            "井": ".-..-",
             /* characters with turbidity suffix */
             "゛": "..",                    /* "  */
             "ガ": ".-.. ..",     "が": ".-.. ..",    /* ga */
@@ -159,7 +160,8 @@
             "、": ".-.-.-",                /* .  */
             "」": ".-.-..",                /* \n */
             "？": "..--..",                /* ？ */
-
+            "┗": ".-.-..",                /* ┗ */
+            "ゝ": ".-.-.-",                /* ゝ */
             "１": ".----", "２": "..---", "３": "...--", "４": "....-", "５":
             ".....", "６": "-....", "７": "--...", "８": "---..", "９": "----.",
             "０": "-----",
@@ -851,7 +853,6 @@
                     if (stop_flag) {
                         throw new Error('終了します');
                     }
-                    console.log('実行されないコード');
                     txt = c["c"].replace(/　/g, '');
                     textModMsg.innerText = textModMsg.innerText+txt;
                 } catch (e) {
@@ -1053,7 +1054,7 @@
 
                     //console.log("1分間に何文字か"+(document.getElementById('textarea3').value.replace(/\r?\n/g,"").length)/(c1[0]*60+Number(c1[1]))*60);
                     c1=(document.getElementById('textarea3').value.replace(/\r?\n/g,"").length)/(c1[0]*60+Number(c1[1]))*60;
-                    console.log(c1);
+                    //console.log(c1);
                     c1 = Math.floor(c1)
                     document.getElementById('hunmoji').innerText="\n"+c1+"文字／分";
                 }
