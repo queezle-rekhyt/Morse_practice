@@ -30,23 +30,22 @@
     <script>
       //console.log("速度"+document.getElementById("speeder"));
     </script>
-    <button onclick = "window.location.reload();">
+    <!-- <button onclick = "window.location.reload();">
       ページ更新
-      </button>
+      </button> -->
     <section>
       <div id="running">
       </div>
       <br>
-    <textarea id="textarea3" class="test" cols="44%" rows="12%" name="content" required="required">&emsp; &emsp; &emsp; &emsp; &emsp;ヌナヌナホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウ井ノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー┗？ゝ゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウ井ノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー┗？ゝ゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウ井ノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー┗？ゝ゛゜）１２３４５６７８９０イロ</textarea>
+    <textarea id="textarea3" class="test" cols="44%" rows="12%" name="content" required="required">ヌナヌナホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウ井ノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー┗？ゝ゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウ井ノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー┗？ゝ゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウ井ノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー┗？ゝ゛゜）１２３４５６７８９０イロ</textarea>
 <br>
-<button onclick = "randome()">
-  ランダム生成
-  </button>
     <!-- <button onclick = "rensyu()">
     書き取り練習
     </button> -->
-    <button onclick="readAloud()">通話表読み上げ</button>
-    <button onclick = "teishi()">通話表読み上げ停止</button><br>
+    <button onclick = "randome()">
+      ランダム生成
+      </button>
+    <br>
     <div id="player" style="float: left";></div>
     <div id="hunmoji"><br>０文字／分</div>
     <script>
@@ -152,26 +151,7 @@
     </body>
     <script>
 
-function readAloud(){
-  const text = document.getElementById("textarea3").value;
 
-
-    if ('speechSynthesis' in window) {
-      var str = text.slice( 12 ) ;
-      var result3 = str.replace(/ホレメ２\r?\n/g, 'にまいめいきますよおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお.　　').replace(/゛゛\r?\n/g, 'つぎのぎょう.　　').replace(/イ/g, 'いろはのい.　　').replace(/ロ/g, 'ろうまのろ.　　').replace(/ハ/g, 'はがきの派.　　').replace(/ニ/g, '二本のに.　　').replace(/ホ/g, 'ほけんのほ.　　').replace(/ヘ/g, '平和の屁.　　').replace(/ト/g, 'とうきょうのと.　　').replace(/チ/g, 'ちどりのち.　　').replace(/リ/g, 'りんごのり.　　').replace(/ヌ/g, 'ぬまずのぬ.　　').replace(/ル/g, 'るすいのる.　　').replace(/ヲ/g, 'おわりのお.　　').replace(/ワ/g, 'わらびのわ.　　').replace(/カ/g, 'かわせのか.　　').replace(/ヨ/g, 'よしののよ.　　').replace(/タ/g, 'たばこのた.　　').replace(/レ/g, 'れんげのれ.　　').replace(/ソ/g, 'そろばんのそ.　　').replace(/ツ/g, 'つるかめのつ.　　').replace(/ネ/g, 'ねずみのね.　　').replace(/ナ/g, 'なごやのな.　　').replace(/ラ/g, 'らっぱのら.　　').replace(/ム/g, 'むせんのむ.　　').replace(/ウ/g, 'うえののう.　　').replace(/井/g, 'いどのい.　　').replace(/ノ/g, 'のはらのの.　　').replace(/オ/g, 'おおさかのお.　　').replace(/ク/g, 'くらぶのく.　　').replace(/ヤ/g, 'やまとのや.　　').replace(/マ/g, 'マッチのマ.　　').replace(/ケ/g, 'けしきのけ.　　').replace(/フ/g, 'ふじさんのふ.　　').replace(/コ/g, 'こどものこ.　　').replace(/エ/g, 'えいごのえ.　　').replace(/テ/g, 'てがみのて.　　').replace(/ア/g, 'あさひのあ.　　').replace(/サ/g, 'さくらのさ.　　').replace(/キ/g, 'きってのき.　　').replace(/ユ/g, 'ゆみやのゆ.　　').replace(/メ/g, 'めいじのめ.　　').replace(/ミ/g, 'みかさのみ.　　').replace(/シ/g, 'しんぶんのし.　　').replace(/ヱ/g, 'かぎのあるえ.　　').replace(/ヒ/g, 'ひこうきのひ.　　').replace(/モ/g, 'もみじのも.　　').replace(/セ/g, 'せかいのせ.　　').replace(/ス/g, 'すずめのす.　　').replace(/ン/g, 'おしまいのん.　　').replace(/（/g, 'はじめかっこ.　　').replace(/ー/g, 'ちょうおん.　　').replace(/┗/g, 'だんらく.　　').replace(/？/g, 'もんぷ.　　').replace(/ゝ/g, 'くぎりてん.　　').replace(/゛/g, 'だくてん.　　').replace(/゜/g, 'はんだくてん.　　').replace(/）/g, 'おわりかっこ.　　').replace(/１/g, 'すうじのひと.　　').replace(/２/g, 'すうじのに.　　').replace(/３/g, 'すうじのさん.　　').replace(/４/g, 'すうじのよん.　　').replace(/５/g, 'すうじのご.　　').replace(/６/g, 'すうじのろく.　　').replace(/７/g, 'すうじのなな.　　').replace(/８/g, 'すうじのはち.　　').replace(/９/g, 'すうじのきゅう.　　').replace(/０/g, 'すうじのまる.　　');
-      console.log(result3);
-      const uttr = new SpeechSynthesisUtterance(result3);
-      //速さ
-      uttr.rate = 0.5;
-      // 高さ 0-2 初期値:1
-      uttr.pitch = 0;
-      // 音量 0-1 初期値:1
-      uttr.volume = 1.5;
-      window.speechSynthesis.speak(uttr);
-      } else {
-        alert('大変申し訳ありません。このブラウザは音声合成に対応していません。')
-      }
-}
 
 function teishi(){
   window.speechSynthesis.cancel();
@@ -230,14 +210,14 @@ function change_all() {
 
             var S = area.join('');
             //var S="イロハニホヘトチリヌルヲワカヨタレソツネナラムウヰノオクヤマケフコエテアサキユメミシヱヒモセスン（ー」？、゛゜）１２３４５６７８９０"
-            var rand_str = '　　　　　　ヌナヌナホレ\n';
+            var rand_str = 'ヌナヌナホレ\n';
             
             for ( var i = 1; i <= val; i++ ) {
                 rand_str += S.charAt(Math.floor(Math.random() * S.length));
                 if (i%20 == 0 && i!=val) {
                     rand_str += "゛゛\n";
                     if (i == 200){
-                        rand_str += "ホレメ２\n";
+                        rand_str += "　　　ホレメ２\n";
                     }
                 }
             }
@@ -258,7 +238,7 @@ function change_all() {
 
         var text = document.getElementsByTagName("textarea")[0];
 
-        text.value="　　　　　　ヌナヌナホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウ井ノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー┗？ゝ゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウ井ノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー┗？ゝ゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウ井ノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー┗？ゝ゛゜）１２３４５６７８９０イロ";
+        text.value="ヌナヌナホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウ井ノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー┗？ゝ゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウ井ノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー┗？ゝ゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウ井ノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー┗？ゝ゛゜）１２３４５６７８９０イロ";
         var textModMsg = document.getElementById('running');
         textModMsg.innerText = "";
         }

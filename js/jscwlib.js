@@ -9,6 +9,7 @@
     function jscw (params) {
         var stop_flag = false;
         var download_svg = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4LjciIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCA4LjcgMTAiPjxwYXRoIHN0eWxlPSJzdHJva2U6IzAwMDtzdHJva2Utd2lkdGg6MC4yNnB4OyIgZD0ibSA0LjQsMi41IHYgNC43IGwgMS42LC0xLjYgdiAwLjMgbCAtMS42NywxLjY3IC0xLjY3LC0xLjY3IHYgLTAuMyBsIDEuNTYsMS42IDAsLTQuNyB6IiAvPjxwYXRoIHN0eWxlPSJzdHJva2U6IzAwMDtzdHJva2Utd2lkdGg6MC40OyIgZD0iTSAyLjUsOCBIIDYuMSIgLz48L3N2Zz4K";
+        var yomiage_svg = "data:image/png;base64,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";
         var play_svg = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj48cGF0aCBkPSJNMyAyIEwzIDggTDcgNSBaIiBzdHlsZT0iZmlsbDojZmZmO3N0cm9rZS13aWR0aDowLjM7c3Ryb2tlOiMwMDA7c3Ryb2tlLWxpbmVqb2luOmJldmVsOyIvPjwvc3ZnPgo=";
         var pause_svg = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj48c3R5bGU+LmF7ZmlsbDojZmZmO3N0cm9rZS13aWR0aDowLjM7c3Ryb2tlOiMwMDA7fTwvc3R5bGU+PHJlY3Qgd2lkdGg9IjEuNiIgaGVpZ2h0PSI1IiB4PSIzIiB5PSIyLjUiIHJ5PSIwLjQiIGNsYXNzPSJhIi8+PHJlY3Qgd2lkdGg9IjEuNiIgaGVpZ2h0PSI1IiB4PSI1LjQiIHk9IjIuNSIgcnk9IjAuNCIgY2xhc3M9ImEiLz48L3N2Zz4K";
         var stop_svg = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDEwIDEwIj48cmVjdCB3aWR0aD0iMy43NSIgaGVpZ2h0PSIzLjc1IiB4PSIzLjEyNSIgeT0iMy4xMjUiIHJ5PSIwLjIiIHN0eWxlPSJmaWxsOiNmZmY7c3Ryb2tlLXdpZHRoOjAuMztzdHJva2U6IzAwMCIvPjwvc3ZnPgo=";
@@ -185,7 +186,7 @@
 
         this.controls_options = {
             "wpm_min": 5, "wpm_max": 30, 
-            "eff_min": 0, "eff_max": 17, 
+            "eff_min": 1, "eff_max": 17, 
             "ews_min": 0, "ews_max": 5, 
             "freq_min": 300, "freq_max": 1500,
             "edge_min": 1, "edge_max": 25,
@@ -219,7 +220,7 @@
         this.textStart = 0;     // time when the actual text starts (without "vvv +" or startDelay, if activated)
         this.textEnd   = Number.MAX_VALUE;     // time when the actual text ends (i.e. without the "+")
         this.showSettings = false;
-        this.startDelay = 0;    // delay in seconds before audio starts
+        this.startDelay = 2;    // delay in seconds before audio starts
         this.prosign = false;   // we're within a prosign (no letter spaces)
         this.finishedTimeout = null;
 
@@ -500,12 +501,12 @@
                 this.control_labels["wpm"].innerHTML = this.wpm + "&nbsp;WpM";
             }
             if (this.control_labels["eff"]) {
-                if (this.eff) {
-                    this.control_labels["eff"].innerHTML = this.eff + "&nbsp;WpM";
-                }
-                else {
-                    this.control_labels["eff"].innerHTML =  "&nbsp;(off)";
-                }
+                 if (this.eff) {
+                    this.control_labels["eff"].innerHTML = "狭めX"+(this.wpm-this.eff);
+                 }
+                 else {
+                     this.control_labels["eff"].innerHTML =  "&nbsp;(off)";
+                 }
             }
             if (this.control_labels["ews"]) {
                 if (this.ews) {
@@ -821,6 +822,7 @@
         }
 
         this.stop = function() {
+            window.speechSynthesis.cancel();
             if (this.mode == 'audio') {
                 this.gainNode.gain.cancelScheduledValues(this.audioCtx.currentTime);
                 this.gainNode.gain.setValueAtTime(0, this.audioCtx.currentTime);
@@ -1138,7 +1140,7 @@
             btn_pp.style.verticalAlign = "middle";
             btn_pp.style.textDecoration = "none";
             btn_pp.style.color = "#000000";
-            btn_pp.style.width = "65px";
+            btn_pp.style.width = "40px";
             btn_pp.style.height = "25px";
             obj.btn_pp = btn_pp;
             btn_pp.onclick = function () {
@@ -1164,15 +1166,15 @@
             btn_stop.style.color = "#000000";
             btn_stop.src = stop_svg;
             btn_stop.title = "Stop";
-            btn_stop.style.width = "65px";
+            btn_stop.style.width = "40px";
             btn_stop.style.height = "25px";
             btn_stop.onclick = function () {
                 obj.stop();
             }
             var btn_down = document.createElement("a");
             var btn_down_img = document.createElement("img");
-            //btn_down_img.style.borderRadius = "3px";
-            //btn_down_img.style.backgroundColor = "#dadada";
+            // btn_down_img.style.borderRadius = "3px";
+            // btn_down_img.style.backgroundColor = "#dadada";
             // btn_down_img.style.cursor = "pointer";
             // btn_down_img.style.border = "1px solid #555555";
             // btn_down_img.style.textAlign = "center";
@@ -1181,8 +1183,8 @@
             // btn_down_img.style.display = "inline-block";
             // btn_down_img.style.verticalAlign = "middle";
             // btn_down_img.style.textDecoration = "none";
-            //btn_down_img.style.color = "#000000";
-            //btn_down_img.src = download_svg; 
+            // btn_down_img.style.color = "#000000";
+            // btn_down_img.src = download_svg; 
             // btn_down_img.style.width = "25px";
             // btn_down_img.style.height = "25px";
             // btn_down.appendChild(btn_down_img);
@@ -1191,6 +1193,41 @@
             // btn_down.onclick = function () {
             //     obj.setText(obj.text);
             // }
+
+            var btn_yomiage = document.createElement("img");
+            btn_yomiage.title = obj.text;
+            btn_yomiage.style.borderRadius = "3px";
+            btn_yomiage.style.backgroundColor = "#dadada";
+            btn_yomiage.style.cursor = "pointer";
+            btn_yomiage.style.border = "1px solid #555555";
+            btn_yomiage.style.textAlign = "center";
+            btn_yomiage.style.padding = "0px 0px";
+            btn_yomiage.style.margin = "4px";
+            btn_yomiage.style.display = "inline-block";
+            btn_yomiage.style.textDecoration = "none";
+            btn_yomiage.style.verticalAlign = "middle";
+            btn_yomiage.style.color = "#000000";
+            btn_yomiage.src = yomiage_svg;
+            btn_yomiage.title = "yomiage";
+            btn_yomiage.style.width = "40px";
+            btn_yomiage.style.height = "25px";
+            btn_yomiage.onclick = function () {
+                const text = document.getElementById("textarea3").value;
+                if ('speechSynthesis' in window) {
+                var result3 = text.replace(/ヌナヌナホレ\r?\n/g, 'ほんぶん.　　').replace(/ホレメ２\r?\n/g, 'にまいめいきます.　　').replace(/゛゛\r?\n/g, 'つぎのぎょう.　　').replace(/イ/g, 'いろはのい.　　').replace(/ロ/g, 'ろうまのろ.　　').replace(/ハ/g, 'はがきの派.　　').replace(/ニ/g, '二本のに.　　').replace(/ホ/g, 'ほけんのほ.　　').replace(/ヘ/g, '平和の屁.　　').replace(/ト/g, 'とうきょうのと.　　').replace(/チ/g, 'ちどりのち.　　').replace(/リ/g, 'りんごのり.　　').replace(/ヌ/g, 'ぬまずのぬ.　　').replace(/ル/g, 'るすいのる.　　').replace(/ヲ/g, 'おわりのお.　　').replace(/ワ/g, 'わらびのわ.　　').replace(/カ/g, 'かわせのか.　　').replace(/ヨ/g, 'よしののよ.　　').replace(/タ/g, 'たばこのた.　　').replace(/レ/g, 'れんげのれ.　　').replace(/ソ/g, 'そろばんのそ.　　').replace(/ツ/g, 'つるかめのつ.　　').replace(/ネ/g, 'ねずみのね.　　').replace(/ナ/g, 'なごやのな.　　').replace(/ラ/g, 'らっぱのら.　　').replace(/ム/g, 'むせんのむ.　　').replace(/ウ/g, 'うえののう.　　').replace(/井/g, 'いどのい.　　').replace(/ノ/g, 'のはらのの.　　').replace(/オ/g, 'おおさかのお.　　').replace(/ク/g, 'くらぶのく.　　').replace(/ヤ/g, 'やまとのや.　　').replace(/マ/g, 'マッチのマ.　　').replace(/ケ/g, 'けしきのけ.　　').replace(/フ/g, 'ふじさんのふ.　　').replace(/コ/g, 'こどものこ.　　').replace(/エ/g, 'えいごのえ.　　').replace(/テ/g, 'てがみのて.　　').replace(/ア/g, 'あさひのあ.　　').replace(/サ/g, 'さくらのさ.　　').replace(/キ/g, 'きってのき.　　').replace(/ユ/g, 'ゆみやのゆ.　　').replace(/メ/g, 'めいじのめ.　　').replace(/ミ/g, 'みかさのみ.　　').replace(/シ/g, 'しんぶんのし.　　').replace(/ヱ/g, 'かぎのあるえ.　　').replace(/ヒ/g, 'ひこうきのひ.　　').replace(/モ/g, 'もみじのも.　　').replace(/セ/g, 'せかいのせ.　　').replace(/ス/g, 'すずめのす.　　').replace(/ン/g, 'おしまいのん.　　').replace(/（/g, 'はじめかっこ.　　').replace(/ー/g, 'ちょうおん.　　').replace(/┗/g, 'だんらく.　　').replace(/？/g, 'もんぷ.　　').replace(/ゝ/g, 'くぎりてん.　　').replace(/゛/g, 'だくてん.　　').replace(/゜/g, 'はんだくてん.　　').replace(/）/g, 'おわりかっこ.　　').replace(/１/g, 'すうじのひと.　　').replace(/２/g, 'すうじのに.　　').replace(/３/g, 'すうじのさん.　　').replace(/４/g, 'すうじのよん.　　').replace(/５/g, 'すうじのご.　　').replace(/６/g, 'すうじのろく.　　').replace(/７/g, 'すうじのなな.　　').replace(/８/g, 'すうじのはち.　　').replace(/９/g, 'すうじのきゅう.　　').replace(/０/g, 'すうじのまる.　　');
+                console.log(result3);
+                const uttr = new SpeechSynthesisUtterance(result3);
+                //速さ
+                uttr.rate = 0.6;
+                // 高さ 0-2 初期値:1
+                uttr.pitch = 0;
+                // 音量 0-1 初期値:1
+                uttr.volume = 1.5;
+                window.speechSynthesis.speak(uttr);
+                } else {
+                    alert('大変申し訳ありません。このブラウザは音声合成に対応していません。')
+                }
+            }
 
             var btn_set = document.createElement("a");
             btn_set.style.position = "relative";
@@ -1224,7 +1261,7 @@
             pop.style.position = "absolute";
             pop.style.zIndex = "1";
             pop.style.top = "120px";
-            pop.style.left = "-165px";
+            pop.style.left = "-115px";
             //pop.style.padding = "3px 3px";
             pop.style.fontSize = "16px";
             pop.style.visibility = "show";
@@ -1253,7 +1290,7 @@
                 obj.setEff(this.value)
                 eff.max = speed.value;
                 eff.value= speed.value;
-                eff_label.innerHTML = speed.value+" WpM";
+                eff_label.innerHTML = "狭めX"+(speed.value-eff.value);
             }
             speed.oninput = function () { obj.setWpm(this.value); }
 
@@ -1298,7 +1335,7 @@
 
             tr = tbl.insertRow();
             td = tr.insertCell();
-            td.appendChild(document.createTextNode("間隔"));
+            td.appendChild(document.createTextNode("符号間隔 広め"));
             td = tr.insertCell();
             td.appendChild(eff);
             td = tr.insertCell();
@@ -1446,6 +1483,7 @@
                 obj.toggle_settings();
             }
 
+
             obj.updateControls();
 
             el.appendChild(pb);
@@ -1453,6 +1491,7 @@
             el.appendChild(btn_pp);
             el.appendChild(btn_down);
             el.appendChild(btn_set);
+            el.appendChild(btn_yomiage);
             el.appendChild(l);
             this.el = el;
         }
