@@ -1335,7 +1335,7 @@
 
             tr = tbl.insertRow();
             td = tr.insertCell();
-            td.appendChild(document.createTextNode("符号間隔 広め"));
+            td.appendChild(document.createTextNode("間隔 広め"));
             td = tr.insertCell();
             td.appendChild(eff);
             td = tr.insertCell();
