@@ -201,7 +201,8 @@
         this.ews = 0;           // extra word space
         this.freq = 600;
         this.volume = 0.5;      // relative volume how CW is generated internally
-        this.playvolume = 1;    // player volume (relative * player volume = total volume)
+        this.playvolume = 2;    // player volume (relative * player volume = total volume)
+        this.yomiage = 2;
         this.q = 10;
         this.dotlen;
         this.playLength = 0;
@@ -502,7 +503,7 @@
             }
             if (this.control_labels["eff"]) {
                  if (this.eff) {
-                    this.control_labels["eff"].innerHTML = "狭めX"+(this.wpm-this.eff);
+                    this.control_labels["eff"].innerHTML = "X"+(this.wpm-this.eff);
                  }
                  else {
                      this.control_labels["eff"].innerHTML =  "&nbsp;(off)";
@@ -524,6 +525,9 @@
             }
             if (this.control_labels["vol"]) {
                 this.control_labels["vol"].innerHTML = Math.round(this.playvolume * 100) + "&nbsp;%";
+            }
+            if (this.control_labels["yomiage"]) {
+                this.control_labels["yomiage"].innerHTML = this.yomiage;
             }
 
             this.refresh_download_link();
@@ -1211,14 +1215,15 @@
             btn_yomiage.title = "yomiage";
             btn_yomiage.style.width = "40px";
             btn_yomiage.style.height = "25px";
+            var uttr;
             btn_yomiage.onclick = function () {
                 const text = document.getElementById("textarea3").value;
                 if ('speechSynthesis' in window) {
                 var result3 = text.replace(/ヌナヌナホレ\r?\n/g, 'ほんぶん.　　').replace(/ホレメ２\r?\n/g, 'にまいめいきます.　　').replace(/゛゛\r?\n/g, 'つぎのぎょう.　　').replace(/イ/g, 'いろはのい.　　').replace(/ロ/g, 'ろうまのろ.　　').replace(/ハ/g, 'はがきの派.　　').replace(/ニ/g, '二本のに.　　').replace(/ホ/g, 'ほけんのほ.　　').replace(/ヘ/g, '平和の屁.　　').replace(/ト/g, 'とうきょうのと.　　').replace(/チ/g, 'ちどりのち.　　').replace(/リ/g, 'りんごのり.　　').replace(/ヌ/g, 'ぬまずのぬ.　　').replace(/ル/g, 'るすいのる.　　').replace(/ヲ/g, 'おわりのお.　　').replace(/ワ/g, 'わらびのわ.　　').replace(/カ/g, 'かわせのか.　　').replace(/ヨ/g, 'よしののよ.　　').replace(/タ/g, 'たばこのた.　　').replace(/レ/g, 'れんげのれ.　　').replace(/ソ/g, 'そろばんのそ.　　').replace(/ツ/g, 'つるかめのつ.　　').replace(/ネ/g, 'ねずみのね.　　').replace(/ナ/g, 'なごやのな.　　').replace(/ラ/g, 'らっぱのら.　　').replace(/ム/g, 'むせんのむ.　　').replace(/ウ/g, 'うえののう.　　').replace(/井/g, 'いどのい.　　').replace(/ノ/g, 'のはらのの.　　').replace(/オ/g, 'おおさかのお.　　').replace(/ク/g, 'くらぶのく.　　').replace(/ヤ/g, 'やまとのや.　　').replace(/マ/g, 'マッチのマ.　　').replace(/ケ/g, 'けしきのけ.　　').replace(/フ/g, 'ふじさんのふ.　　').replace(/コ/g, 'こどものこ.　　').replace(/エ/g, 'えいごのえ.　　').replace(/テ/g, 'てがみのて.　　').replace(/ア/g, 'あさひのあ.　　').replace(/サ/g, 'さくらのさ.　　').replace(/キ/g, 'きってのき.　　').replace(/ユ/g, 'ゆみやのゆ.　　').replace(/メ/g, 'めいじのめ.　　').replace(/ミ/g, 'みかさのみ.　　').replace(/シ/g, 'しんぶんのし.　　').replace(/ヱ/g, 'かぎのあるえ.　　').replace(/ヒ/g, 'ひこうきのひ.　　').replace(/モ/g, 'もみじのも.　　').replace(/セ/g, 'せかいのせ.　　').replace(/ス/g, 'すずめのす.　　').replace(/ン/g, 'おしまいのん.　　').replace(/（/g, 'はじめかっこ.　　').replace(/ー/g, 'ちょうおん.　　').replace(/┗/g, 'だんらく.　　').replace(/？/g, 'もんぷ.　　').replace(/ゝ/g, 'くぎりてん.　　').replace(/゛/g, 'だくてん.　　').replace(/゜/g, 'はんだくてん.　　').replace(/）/g, 'おわりかっこ.　　').replace(/１/g, 'すうじのひと.　　').replace(/２/g, 'すうじのに.　　').replace(/３/g, 'すうじのさん.　　').replace(/４/g, 'すうじのよん.　　').replace(/５/g, 'すうじのご.　　').replace(/６/g, 'すうじのろく.　　').replace(/７/g, 'すうじのなな.　　').replace(/８/g, 'すうじのはち.　　').replace(/９/g, 'すうじのきゅう.　　').replace(/０/g, 'すうじのまる.　　');
                 console.log(result3);
-                const uttr = new SpeechSynthesisUtterance(result3);
+                uttr = new SpeechSynthesisUtterance(result3);
                 //速さ
-                uttr.rate = 0.6;
+                uttr.rate = document.getElementById('yomiage').value;
                 // 高さ 0-2 初期値:1
                 uttr.pitch = 0;
                 // 音量 0-1 初期値:1
@@ -1290,7 +1295,7 @@
                 obj.setEff(this.value)
                 eff.max = speed.value;
                 eff.value= speed.value;
-                eff_label.innerHTML = "狭めX"+(speed.value-eff.value);
+                eff_label.innerHTML = "X"+(speed.value-eff.value);
             }
             speed.oninput = function () { obj.setWpm(this.value); }
 
@@ -1305,7 +1310,7 @@
 
             var tr = tbl.insertRow();
             var td = tr.insertCell();
-            td.appendChild(document.createTextNode("速さ"));
+            td.appendChild(document.createTextNode("符号の速さ"));
             td = tr.insertCell();
             td.appendChild(speed);
             td = tr.insertCell();
@@ -1335,7 +1340,7 @@
 
             tr = tbl.insertRow();
             td = tr.insertCell();
-            td.appendChild(document.createTextNode("間隔 広め"));
+            td.appendChild(document.createTextNode("符号の間隔"));
             td = tr.insertCell();
             td.appendChild(eff);
             td = tr.insertCell();
@@ -1394,14 +1399,48 @@
 
             tr = tbl.insertRow();
             td = tr.insertCell();
-            td.appendChild(document.createTextNode("高さ"));
+            td.appendChild(document.createTextNode("符号の高さ"));
             td = tr.insertCell();
             td.appendChild(freq);
             td = tr.insertCell();
             td.appendChild(freq_label);
 
+            //通話表の速さ
+            var yomiage = document.createElement("input"); 
+            yomiage.id = "yomiage";
+            yomiage.type = "range";
+            yomiage.value = obj.yomiage;
+            yomiage.min = 0;
+            yomiage.max = 2;
+            yomiage.step = 0.1;
+            yomiage.style.display = "inline-block";
+            yomiage.style.verticalAlign = "middle";
+            yomiage.style.width = "175px";
+
+            var yomiage_label = document.createElement("label");
+            yomiage_label.htmlFor = "yomiage";
+            yomiage_label.style.fontSize = "16px";
+            yomiage.onchange = function () {
+                 console.log(this.value);
+                 yomiage_label.innerHTML = this.value;
+             }
+            yomiage.oninput = function () { 
+                yomiage_label.innerHTML = this.value;
+            }
+
+            obj.control_labels["yomiage"] = yomiage_label;
+            obj.control_inputs["yomiage"] = yomiage;
+            console.log(yomiage);
+            tr = tbl.insertRow();
+            td = tr.insertCell();
+            td.appendChild(document.createTextNode("通話表速さ"));
+            td = tr.insertCell();
+            td.appendChild(yomiage);
+            td = tr.insertCell();
+            td.appendChild(yomiage_label);
+
             // edge
-            var edge = document.createElement("input"); 
+            //var edge = document.createElement("input"); 
             // edge.id = "edge";
             // edge.type = "range";
             // edge.min = obj.controls_options["edge_min"];
@@ -1414,7 +1453,7 @@
             // edge.onchange = function () { obj.setQ(this.value); }
             // edge.oninput = function () { obj.setQ(this.value); }
 
-            var edge_label = document.createElement("label");
+            //var edge_label = document.createElement("label");
             // edge_label.htmlFor = "edge";
             // edge_label.style.fontSize = "12px";
             // edge_label.innerHTML = "10";
@@ -1431,7 +1470,7 @@
             // td.appendChild(edge_label);
 
             // volume
-            var vol = document.createElement("input"); 
+            //var vol = document.createElement("input"); 
             // vol.id = "vol";
             // vol.type = "range";
             // vol.min = obj.controls_options["volume_min"];
@@ -1444,7 +1483,7 @@
             // vol.onchange = function () { obj.setVolume(this.value/100); }
             // vol.oninput = function () { obj.setVolume(this.value/100); }
 
-            var vol_label = document.createElement("label");
+            //var vol_label = document.createElement("label");
             // vol_label.htmlFor = "vol";
             // vol_label.style.fontSize = "12px";
             // vol_label.innerHTML = "50%";
