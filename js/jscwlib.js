@@ -186,7 +186,7 @@
 
         this.controls_options = {
             "wpm_min": 5, "wpm_max": 30, 
-            "eff_min": 1, "eff_max": 17, 
+            "eff_min": 1, "eff_max": 21, 
             "ews_min": 0, "ews_max": 5, 
             "freq_min": 300, "freq_max": 1500,
             "edge_min": 1, "edge_max": 25,
@@ -1487,8 +1487,8 @@
             obj.updateControls();
 
             el.appendChild(pb);
-            el.appendChild(btn_stop);
             el.appendChild(btn_pp);
+            el.appendChild(btn_stop);
             el.appendChild(btn_down);
             el.appendChild(btn_set);
             el.appendChild(btn_yomiage);
