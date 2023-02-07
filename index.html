@@ -267,11 +267,9 @@ window.onload = () => {
 
 m.onPlay = function () { 
     var txt = document.getElementById("textarea3").value;
-    txt = txt.replace(/ヘ/g, 'ヘ　　');
-    txt = txt.replace(/ム/g, 'ム　　');
-    txt = txt.replace(/ラ/g, 'ラ　');
+    txt = txt.replace(/ヘ/g, 'ヘ　');
+    txt = txt.replace(/ム/g, 'ム　');
     //゛゛/nでない「゛」を「゛　」に変換する
-    txt = txt.replace(/゛/g, '゛　');
     txt = txt.replace(/゛　゛　\r?\n/g, '゛゛\n');
     m.setText(txt);
     console.log("再生内容:"+ txt)
