@@ -186,7 +186,7 @@
 
         this.controls_options = {
             "wpm_min": 5, "wpm_max": 30, 
-            "eff_min": 1, "eff_max": 21, 
+            "eff_min": 1, "eff_max": 22, 
             "ews_min": 0, "ews_max": 5, 
             "freq_min": 300, "freq_max": 1500,
             "edge_min": 1, "edge_max": 25,
