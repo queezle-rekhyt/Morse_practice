@@ -7,6 +7,7 @@
  *  The MIT license applies.
  */
     function jscw (params) {
+        var a=null;
         var stop_flag = false;
         var download_svg = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4LjciIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCA4LjcgMTAiPjxwYXRoIHN0eWxlPSJzdHJva2U6IzAwMDtzdHJva2Utd2lkdGg6MC4yNnB4OyIgZD0ibSA0LjQsMi41IHYgNC43IGwgMS42LC0xLjYgdiAwLjMgbCAtMS42NywxLjY3IC0xLjY3LC0xLjY3IHYgLTAuMyBsIDEuNTYsMS42IDAsLTQuNyB6IiAvPjxwYXRoIHN0eWxlPSJzdHJva2U6IzAwMDtzdHJva2Utd2lkdGg6MC40OyIgZD0iTSAyLjUsOCBIIDYuMSIgLz48L3N2Zz4K";
         var yomiage_svg = "data:image/png;base64,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";
@@ -846,6 +847,12 @@
             while( new Date() - start < milli_second );
         }
 
+        this.setCharacterCb = function (c, t, s) {
+            //console.log(s);
+            var cb = this.onCharacterPlay;
+            a = setTimeout(function() { cb(c,s); }, t);
+        }
+
         // dummy function - will be called each time a character starts
         // playing, and will receive the position in the string and the
         // character itself in "c"
@@ -855,23 +862,17 @@
         this.onCharacterPlay = function (c,s) {
                 //console.log("onCharacterPlay"+s);
                 //console.log(s);
-                try {
-                    if (stop_flag) {
-                        throw new Error('終了します');
-                    }
+                if (stop_flag) {
+                    console.log(stop_flag);
+                    for(let a = 1; a < 65536; a++) {
+                        clearTimeout(a);
+                      }
+                }else{
                     txt = c["c"].replace(/　/g, '');
                     textModMsg.innerText = textModMsg.innerText+txt;
-                } catch (e) {
-                    document.location.reload();
-                    console.log(e.message);
+                    console.log(stop_flag);
                 }
 
-        }
-
-        this.setCharacterCb = function (c, t, s) {
-            //console.log(s);
-            var cb = this.onCharacterPlay;
-            setTimeout(function() { cb(c,s); }, t);
         }
 
 
