@@ -187,7 +187,7 @@
 
         this.controls_options = {
             "wpm_min": 5, "wpm_max": 30, 
-            "eff_min": 1, "eff_max": 22, 
+            "eff_min": 1, "eff_max": 23, 
             "ews_min": 0, "ews_max": 5, 
             "freq_min": 300, "freq_max": 1500,
             "edge_min": 1, "edge_max": 25,
@@ -684,6 +684,7 @@
         }
 
         this.play = function(playtext) {
+
             var textModMsg = document.getElementById('running');
             textModMsg.innerText = "";
             if (!this.init_done) {
@@ -799,6 +800,15 @@
             }
 
             this.playLength = out[out.length-1]['t'];
+            console.log("長さ"+this.playLength);
+
+    
+            //console.log("1分間に何文字か"+(document.getElementById('textarea3').value.replace(/\r?\n/g,"").length)/(c1[0]*60+Number(c1[1]))*60);
+            var c1=(document.getElementById('textarea3').value.replace(/\r?\n/g,"").length)/(this.playLength-2)*60;
+            //console.log(c1);
+            c1 = Math.floor(c1)
+            document.getElementById('hunmoji').innerText=c1+"文字／分";
+
             this.playEnd = start + this.playLength;
             this.playTiming = out;
 
@@ -1054,17 +1064,7 @@
                 
                 obj.progresslabel.innerHTML = obj.fmtTime(sec, sign) + " /" + obj.fmtTime(obj.getLength() - obj.textStart,"");
 
-                    //console.log("長さ"+obj.fmtTime(obj.getLength() - obj.textStart,""));
-                    // console.log("文字数"+document.getElementById('textarea3').value.replace(/\r?\n/g,"").length);
-                    if(obj.fmtTime(obj.getLength() - obj.textStart,"")!=" 0:00"){
-                    var c1 = obj.fmtTime(obj.getLength() - obj.textStart,"").split(":");
-
-                    //console.log("1分間に何文字か"+(document.getElementById('textarea3').value.replace(/\r?\n/g,"").length)/(c1[0]*60+Number(c1[1]))*60);
-                    c1=(document.getElementById('textarea3').value.replace(/\r?\n/g,"").length)/(c1[0]*60+Number(c1[1])-2)*60;
-                    //console.log(c1);
-                    c1 = Math.floor(c1)
-                    document.getElementById('hunmoji').innerText="\n"+c1+"文字／分";
-                }
+                    
 
 
                 if (obj.paused || obj.getRemaining() == 0) {
@@ -1110,7 +1110,7 @@
         this.renderPlayer = function(el, obj) {
             var el = document.getElementById(el);
             el.innerHTML = "";
-            el.style.width = '220px';
+            el.style.width = '285px';
             el.style.borderWidth = 'thin';
             el.style.borderStyle= 'dashed';
             el.style.padding = '6px';
@@ -1145,7 +1145,7 @@
             btn_pp.style.verticalAlign = "middle";
             btn_pp.style.textDecoration = "none";
             btn_pp.style.color = "#000000";
-            btn_pp.style.width = "40px";
+            btn_pp.style.width = "85px";
             btn_pp.style.height = "25px";
             obj.btn_pp = btn_pp;
             btn_pp.onclick = function () {
@@ -1171,7 +1171,7 @@
             btn_stop.style.color = "#000000";
             btn_stop.src = stop_svg;
             btn_stop.title = "Stop";
-            btn_stop.style.width = "40px";
+            btn_stop.style.width = "85px";
             btn_stop.style.height = "25px";
             btn_stop.onclick = function () {
                 obj.stop();
@@ -1214,7 +1214,7 @@
             btn_yomiage.style.color = "#000000";
             btn_yomiage.src = yomiage_svg;
             btn_yomiage.title = "yomiage";
-            btn_yomiage.style.width = "40px";
+            btn_yomiage.style.width = "85px";
             btn_yomiage.style.height = "25px";
             var uttr;
             btn_yomiage.onclick = function () {
@@ -1267,7 +1267,7 @@
             pop.style.position = "absolute";
             pop.style.zIndex = "1";
             pop.style.top = "120px";
-            pop.style.left = "-115px";
+            pop.style.left = "-110px";
             //pop.style.padding = "3px 3px";
             pop.style.fontSize = "16px";
             pop.style.visibility = "show";
@@ -1526,13 +1526,13 @@
 
             obj.updateControls();
 
-            el.appendChild(pb);
-            el.appendChild(btn_pp);
-            el.appendChild(btn_stop);
-            el.appendChild(btn_down);
-            el.appendChild(btn_set);
+            //el.appendChild(pb);
             el.appendChild(btn_yomiage);
-            el.appendChild(l);
+            el.appendChild(btn_set);
+            el.appendChild(btn_down);
+            el.appendChild(btn_stop);
+            el.appendChild(btn_pp);
+            //el.appendChild(l);
             this.el = el;
         }
 

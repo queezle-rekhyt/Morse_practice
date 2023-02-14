@@ -42,22 +42,21 @@
     <!-- <button onclick = "rensyu()">
     書き取り練習
     </button> -->
-    <button onclick = "randome()">
+    <label id="hunmoji">０文字／分</label>
+    <button style="float:right; margin-right:70px" onclick = "randome()">
       ランダム生成
       </button>
     <br>
-    <div id="player" style="float: left";></div>
-    <div id="hunmoji"><br>０文字／分</div>
+    <div id="player"></div>
     <script>
-    var m = new jscw({"wpm": 22,"ews":0.5,"eff":15});
+    var m = new jscw({"wpm": 23,"ews":0.5,"eff":15});
     m.renderPlayer('player', m);
     </script>
-  <br>
-    <hr>
+    <br>
     文の長さ<br>
-    <input type="range" id="example" value="30" min="1" max="35" step="1" style="width:60%;margin-left:5px";><span id="current-value"></span>
-    <hr><br><br><br><br>
-    <br><br><hr>生成する文字を選択<br>
+    <input type="range" id="example" value="30" min="1" max="35" step="1" style="width:200px;margin-left:5px";><span id="current-value"></span>
+    <br><br><br><br><br>
+    <br><br><br>生成する文字を選択<br>
     <input type="checkbox" id="checkbox_all" checked="checked">全選択 / 全解除
       <br>
     <div style="float:left">
@@ -143,7 +142,7 @@
       <p>）<input type="checkbox" class="checkbox_list" name="" value="）" checked="checked"></p>
     </div>
 
-        <hr style="clear:both;">
+        <br style="clear:both;">
     </section>
     </article>
     <!----- /main ----->
