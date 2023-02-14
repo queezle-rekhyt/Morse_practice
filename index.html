@@ -37,28 +37,25 @@
       <div id="running">
       </div>
       <br>
-    <textarea id="textarea3" class="test" cols="44%" rows="12%" name="content" required="required">ヌナヌナホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウ井ノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー┗？ゝ゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウ井ノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー┗？ゝ゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウ井ノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー┗？ゝ゛゜）１２３４５６７８９０イロ</textarea>
+    <textarea id="textarea3" class="test" cols="45px" rows="12px" name="content" required="required">ヌナヌナホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウ井ノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー┗？ゝ゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウ井ノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー┗？ゝ゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウ井ノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー┗？ゝ゛゜）１２３４５６７８９０イロ</textarea>
 <br>
     <!-- <button onclick = "rensyu()">
     書き取り練習
     </button> -->
-    <label id="hunmoji">０文字／分</label>
-    <button style="float:right; margin-right:70px" onclick = "randome()">
-      ランダム生成
-      </button>
+    <label id="hunmoji" style="float:left;">０文字／分</label>
     <br>
     <div id="player"></div>
     <script>
     var m = new jscw({"wpm": 23,"ews":0.5,"eff":15});
     m.renderPlayer('player', m);
     </script>
-    <br>
+    <hr>
     文の長さ<br>
     <input type="range" id="example" value="30" min="1" max="35" step="1" style="width:200px;margin-left:5px";><span id="current-value"></span>
-    <br><br><br><br><br>
-    <br><br><br>生成する文字を選択<br>
+    <hr><br><br><br><br>
+    <br><br><hr>生成する文字を選択<br>
     <input type="checkbox" id="checkbox_all" checked="checked">全選択 / 全解除
-      <br>
+      <hr>
     <div style="float:left">
         <p>ア<input type="checkbox" class="checkbox_list" name="" value="ア" checked="checked">&nbsp;&nbsp;
           イ<input type="checkbox" class="checkbox_list" name="" value="イ" checked="checked">&nbsp;&nbsp;
