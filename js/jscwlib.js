@@ -963,10 +963,7 @@
                         var result1 = moji_count.toString().slice(0,1);
                         //console.log(result1);
                         var result2 = moji_count.toString().slice(1,2);
-                        if(result2==0){
-                            result1=result1-1
-                            result2=10;
-                        }
+                        
                         //console.log(result2);
                         tbl.rows[result1].cells[result2].innerText = moji_count;
                         console.log(stop_flag);
