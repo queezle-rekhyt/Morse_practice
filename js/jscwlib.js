@@ -922,6 +922,12 @@
             while( new Date() - start < milli_second );
         }
 
+        var moji_count = 4;
+
+        function countUp() {
+            moji_count ++;
+            return moji_count;     
+        }
         this.setCharacterCb = function (c, t, s) {
             //console.log(s);
             var cb = this.onCharacterPlay;
@@ -943,9 +949,30 @@
                         clearTimeout(a);
                       }
                 }else{
-                    txt = c["c"].replace(/　/g, '');
-                    textModMsg.innerText = textModMsg.innerText+txt;
-                    console.log(stop_flag);
+                    if(moji_count<=10){
+                        txt = c["c"].replace(/　/g, '');
+                        textModMsg.innerText = textModMsg.innerText+txt;
+                        moji_count = countUp();
+                    }else{
+                        txt = c["c"].replace(/　/g, '');
+                        if(txt==""||txt=="゛"){
+
+                            return;
+                        }
+                        console.log(txt);
+                        var result1 = moji_count.toString().slice(0,1);
+                        //console.log(result1);
+                        var result2 = moji_count.toString().slice(1,2);
+                        if(result2==0){
+                            result1=result1-1
+                            result2=10;
+                        }
+                        //console.log(result2);
+                        tbl.rows[result1].cells[result2].innerText = moji_count;
+                        console.log(stop_flag);
+                        moji_count = countUp();
+                        console.log(moji_count);
+                    }
                 }
 
         }
