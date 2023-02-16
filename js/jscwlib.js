@@ -922,12 +922,20 @@
             while( new Date() - start < milli_second );
         }
 
-        var moji_count = 4;
+        var moji_count = 14;
+        var tate_count = 1;
 
-        function countUp() {
+        function countUp_moji() {
             moji_count ++;
             return moji_count;     
         }
+
+        function countUp_tate() {
+            moji_count = 1;
+            tate_count ++;
+            return tate_count;     
+        }
+
         this.setCharacterCb = function (c, t, s) {
             //console.log(s);
             var cb = this.onCharacterPlay;
@@ -949,25 +957,37 @@
                         clearTimeout(a);
                       }
                 }else{
-                    if(moji_count<=10){
+                    if(moji_count<=10&&tate_count==1){
                         txt = c["c"].replace(/　/g, '');
                         textModMsg.innerText = textModMsg.innerText+txt;
-                        moji_count = countUp();
+                        moji_count = countUp_moji();
+                        console.log("ヌナヌナゾーン"+moji_count)
                     }else{
                         txt = c["c"].replace(/　/g, '');
                         if(txt==""||txt=="゛"){
-
                             return;
                         }
                         console.log(txt);
-                        var result1 = moji_count.toString().slice(0,1);
-                        //console.log(result1);
-                        var result2 = moji_count.toString().slice(1,2);
                         
                         //console.log(result2);
-                        tbl.rows[result1].cells[result2].innerText = moji_count;
+                        if(moji_count%20==0){
+                            var result2=20;
+                        }else{
+                            if(moji_count>=21||moji_count<=39){
+                            var result2 = moji_count.toString().slice(-1);
+                            }else if(moji_count>=21||moji_count<=39){
+                                result2= moji_count-20;
+                            }
+                        }
+                        console.log("result2"+result2);
+                        tbl.rows[tate_count].cells[result2].innerText = txt;
                         console.log(stop_flag);
-                        moji_count = countUp();
+                        if(result2==40){
+                            moji_count=11;
+                            tate_count = countUp_tate();
+                        }else{
+                            moji_count = countUp_moji()
+                        }
                         console.log(moji_count);
                     }
                 }
