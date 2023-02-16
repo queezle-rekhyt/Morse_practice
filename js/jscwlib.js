@@ -683,6 +683,72 @@
         }
 
         this.play = function(playtext) {
+            
+            console.log("行の長さ"+document.getElementById("example").value*0.5);
+            var num_gyo = document.getElementById("example").value*0.5;
+
+            for (let i = 0; i < num_gyo; i++) {
+                let table = document.getElementById('tbl');
+                // -1で列末尾に追加。インデックスで指定の位置に追加も可能
+
+                if(i%5==0 && i!=0){
+                    var rows = table.insertRow(-1);
+                    var cell = rows.insertCell(-1);
+                    var cell1 = rows.insertCell(-1);
+                    var cell2 = rows.insertCell(-1);
+                    var cell3 = rows.insertCell(-1);
+                    var cell4 = rows.insertCell(-1);
+                    var cell5 = rows.insertCell(-1);
+                    var cell6 = rows.insertCell(-1);
+                    var cell7 = rows.insertCell(-1);
+                    var cell8 = rows.insertCell(-1);
+                    var cell9 = rows.insertCell(-1);
+                    var cell10 = rows.insertCell(-1);
+                    var cell11 = rows.insertCell(-1);
+
+                    
+                    cell.innerHTML = "＼";
+                    cell1.innerHTML = "&#9312;";
+                    cell2.innerHTML = "&#9313;";
+                    cell3.innerHTML = "&#9314;";
+                    cell4.innerHTML = "&#9315;";
+                    cell5.innerHTML = "&#9316;";
+                    cell6.innerHTML = "&#9317;";
+                    cell7.innerHTML = "&#9318;";
+                    cell8.innerHTML = "&#9319;";
+                    cell9.innerHTML = "&#9320;";
+                    cell10.innerHTML = "&#9321;";
+                    cell11.innerHTML = "／";
+                }
+
+                var rows = table.insertRow(-1);
+                var cell = rows.insertCell(-1);
+                var cell1 = rows.insertCell(-1);
+                var cell2 = rows.insertCell(-1);
+                var cell3 = rows.insertCell(-1);
+                var cell4 = rows.insertCell(-1);
+                var cell5 = rows.insertCell(-1);
+                var cell6 = rows.insertCell(-1);
+                var cell7 = rows.insertCell(-1);
+                var cell8 = rows.insertCell(-1);
+                var cell9 = rows.insertCell(-1);
+                var cell10 = rows.insertCell(-1);
+                var cell11 = rows.insertCell(-1);
+
+                
+                cell.innerHTML = "&#93"+(i+12)+";";
+                cell1.innerHTML = "　";
+                cell2.innerHTML = "　";
+                cell3.innerHTML = "　";
+                cell4.innerHTML = "　";
+                cell5.innerHTML = "　";
+                cell6.innerHTML = "　";
+                cell7.innerHTML = "　";
+                cell8.innerHTML = "　";
+                cell9.innerHTML = "　";
+                cell10.innerHTML = "　";
+                cell11.innerHTML = "&#93"+(i+12)+";";
+            }  
 
             var textModMsg = document.getElementById('running');
             textModMsg.innerText = "";
