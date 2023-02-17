@@ -224,7 +224,10 @@
         this.startDelay = 2;    // delay in seconds before audio starts
         this.prosign = false;   // we're within a prosign (no letter spaces)
         this.finishedTimeout = null;
-
+        var moji_count;
+        var tate_count;
+        var first_flg;
+        var middle_flg;
         this.help_url = "https://fkurz.net/ham/jscwlib.html";   // Shows up in the settings dialog - to disable, change to null
         this.help_text = "jscwlib - Documentation";
 
@@ -682,13 +685,29 @@
             }
         }
 
+        function deleteTableRow() {
+            var table = document.getElementById('tbl');  //表のオブジェクトを取得
+            var row_num = table.rows.length;    //表の行数を取得
+            console.log(row_num);
+            if (row_num>1) {
+                //表に二行以上あるとき末尾行を削除（見出し行は削除しない）
+                for (var i = 1; i<row_num; i++){
+                    table.deleteRow(-1);   //末尾行を削除
+                  }
+            }
+        }
+
         this.play = function(playtext) {
+            moji_count = 1;
+            tate_count = 1;
+            first_flg=false;
+            middle_flg=false;
+            deleteTableRow();
             
             console.log("行の長さ"+document.getElementById("example").value*0.5);
             var num_gyo = document.getElementById("example").value*0.5;
-
+            let table = document.getElementById('tbl');
             for (let i = 0; i < num_gyo; i++) {
-                let table = document.getElementById('tbl');
                 // -1で列末尾に追加。インデックスで指定の位置に追加も可能
 
                 if(i%5==0 && i!=0){
@@ -795,7 +814,59 @@
                 cell21.innerHTML = "　";
                 cell22.innerHTML = "　";
                 cell23.innerHTML = "&#93"+(i+12)+";";
-            }  
+            }
+            var rows = table.insertRow(-1);
+                    var cell = rows.insertCell(-1);
+                    var cell1 = rows.insertCell(-1);
+                    var cell2 = rows.insertCell(-1);
+                    var cell3 = rows.insertCell(-1);
+                    var cell4 = rows.insertCell(-1);
+                    var cell5 = rows.insertCell(-1);
+                    var cell6 = rows.insertCell(-1);
+                    var cell7 = rows.insertCell(-1);
+                    var cell8 = rows.insertCell(-1);
+                    var cell9 = rows.insertCell(-1);
+                    var cell10 = rows.insertCell(-1);
+                    var cell11 = rows.insertCell(-1);
+                    var cell12 = rows.insertCell(-1);
+                    var cell13 = rows.insertCell(-1);
+                    var cell14 = rows.insertCell(-1);
+                    var cell15 = rows.insertCell(-1);
+                    var cell16 = rows.insertCell(-1);
+                    var cell17 = rows.insertCell(-1);
+                    var cell18 = rows.insertCell(-1);
+                    var cell19 = rows.insertCell(-1);
+                    var cell20 = rows.insertCell(-1);
+                    var cell21 = rows.insertCell(-1);
+                    var cell22 = rows.insertCell(-1);
+                    var cell23 = rows.insertCell(-1);
+                    
+                    cell.innerHTML = "＼";
+                    cell1.innerHTML = "&#9312;";
+                    cell2.innerHTML = "&#9313;";
+                    cell3.innerHTML = "&#9314;";
+                    cell4.innerHTML = "&#9315;";
+                    cell5.innerHTML = "&#9316;";
+                    cell6.innerHTML = "&#9317;";
+                    cell7.innerHTML = "&#9318;";
+                    cell8.innerHTML = "&#9319;";
+                    cell9.innerHTML = "&#9320;";
+                    cell10.innerHTML = "&#9321;";
+                    cell11.innerHTML = "&#9322;";
+                    cell12.innerHTML = "&#9323;";
+                    cell13.innerHTML = "&#9324;";
+                    cell14.innerHTML = "&#9325;";
+                    cell15.innerHTML = "&#9326;";
+                    cell16.innerHTML = "&#9327;";
+                    cell17.innerHTML = "&#9328;";
+                    cell18.innerHTML = "&#9329;";
+                    cell19.innerHTML = "&#9330;";
+                    cell20.innerHTML = "&#9331;";
+                    cell21.innerHTML = "　";
+                    cell22.innerHTML = "　";
+                    cell23.innerHTML = "／";
+
+            
 
             var textModMsg = document.getElementById('running');
             textModMsg.innerText = "";
@@ -969,16 +1040,12 @@
             while( new Date() - start < milli_second );
         }
 
-        var moji_count = 14;
-        var tate_count = 1;
-
         function countUp_moji() {
             moji_count ++;
             return moji_count;     
         }
 
         function countUp_tate() {
-            moji_count = 1;
             tate_count ++;
             return tate_count;     
         }
@@ -996,6 +1063,11 @@
         textModMsg.innerText = "";
         var s = 0;
         this.onCharacterPlay = function (c,s) {
+            txt = c["c"].replace(/　/g, '')
+            txt = txt.replace(/\r?\n/g, '');
+            if(txt==""){
+                return;
+            }else{
                 //console.log("onCharacterPlay"+s);
                 //console.log(s);
                 if (stop_flag) {
@@ -1004,37 +1076,43 @@
                         clearTimeout(a);
                       }
                 }else{
-                    if(moji_count<=20&&tate_count==1){
-                        txt = c["c"].replace(/　/g, '');
+                    if(!first_flg){
                         textModMsg.innerText = textModMsg.innerText+txt;
+                        console.log("ヌナヌナホレゾーン"+moji_count)
+                        if(moji_count==6){
+                            first_flg=true;
+                            moji_count=0;
+                            textModMsg.innerText = textModMsg.innerText+"　";
+                        }
+                        if(moji_count==224){
+                            first_flg=true;
+                            moji_count=242;
+                        }
                         moji_count = countUp_moji();
-                        console.log("ヌナヌナゾーン"+moji_count)
                     }else{
-                        txt = c["c"].replace(/　/g, '');
-
-                        if(txt==""||txt=='\r?\n'){
-                            return;
-                        }
-                        console.log(txt);
-                        
-                        //console.log(result2);
-                        if(moji_count%20==0){
-                            var result2=20;
-                        }else{
-                            var result2= moji_count%20;
-                        }
-                        console.log("result2 "+result2);
-                        tbl.rows[tate_count].cells[result2].innerText = result2;
-                        console.log(stop_flag);
-                        if(result2==20){
-                            tate_count = countUp_tate();
-                        }else{
-                            moji_count = countUp_moji()
-                        }
-                        console.log(moji_count);
+                            
+                            //console.log(result2);
+                            if(moji_count%22==0){
+                                var result2=22;
+                            }else{
+                                var result2= moji_count%22;
+                            }
+                            tbl.rows[tate_count].cells[result2].innerText = txt;
+                            if(moji_count%22==0){
+                                moji_count = countUp_moji();
+                                tate_count = countUp_tate();
+                                if(tate_count%6==0){
+                                    tate_count = countUp_tate();
+                                }
+                            }else{
+                                moji_count = countUp_moji();
+                            }
+                            if(moji_count==221){
+                                first_flg=false;
+                            }
                     }
                 }
-
+            }
         }
 
 
@@ -1268,6 +1346,7 @@
             el.style.padding = '6px';
             el.style.margin= '6px';
             el.style.fontFamily = 'Ubuntu,calibri,tahoma,arial,sans-serif';
+            
 
             var pb = document.createElement("progress");
             pb.style.width = '215px';
