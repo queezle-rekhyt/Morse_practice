@@ -705,7 +705,18 @@
                     var cell9 = rows.insertCell(-1);
                     var cell10 = rows.insertCell(-1);
                     var cell11 = rows.insertCell(-1);
-
+                    var cell12 = rows.insertCell(-1);
+                    var cell13 = rows.insertCell(-1);
+                    var cell14 = rows.insertCell(-1);
+                    var cell15 = rows.insertCell(-1);
+                    var cell16 = rows.insertCell(-1);
+                    var cell17 = rows.insertCell(-1);
+                    var cell18 = rows.insertCell(-1);
+                    var cell19 = rows.insertCell(-1);
+                    var cell20 = rows.insertCell(-1);
+                    var cell21 = rows.insertCell(-1);
+                    var cell22 = rows.insertCell(-1);
+                    var cell23 = rows.insertCell(-1);
                     
                     cell.innerHTML = "＼";
                     cell1.innerHTML = "&#9312;";
@@ -718,7 +729,19 @@
                     cell8.innerHTML = "&#9319;";
                     cell9.innerHTML = "&#9320;";
                     cell10.innerHTML = "&#9321;";
-                    cell11.innerHTML = "／";
+                    cell11.innerHTML = "&#9322;";
+                    cell12.innerHTML = "&#9323;";
+                    cell13.innerHTML = "&#9324;";
+                    cell14.innerHTML = "&#9325;";
+                    cell15.innerHTML = "&#9326;";
+                    cell16.innerHTML = "&#9327;";
+                    cell17.innerHTML = "&#9328;";
+                    cell18.innerHTML = "&#9329;";
+                    cell19.innerHTML = "&#9330;";
+                    cell20.innerHTML = "&#9331;";
+                    cell21.innerHTML = "　";
+                    cell22.innerHTML = "　";
+                    cell23.innerHTML = "／";
                 }
 
                 var rows = table.insertRow(-1);
@@ -734,6 +757,18 @@
                 var cell9 = rows.insertCell(-1);
                 var cell10 = rows.insertCell(-1);
                 var cell11 = rows.insertCell(-1);
+                var cell12 = rows.insertCell(-1);
+                var cell13 = rows.insertCell(-1);
+                var cell14 = rows.insertCell(-1);
+                var cell15 = rows.insertCell(-1);
+                var cell16 = rows.insertCell(-1);
+                var cell17 = rows.insertCell(-1);
+                var cell18 = rows.insertCell(-1);
+                var cell19 = rows.insertCell(-1);
+                var cell20 = rows.insertCell(-1);
+                var cell21 = rows.insertCell(-1); 
+                var cell22 = rows.insertCell(-1);
+                var cell23 = rows.insertCell(-1);    
 
                 
                 cell.innerHTML = "&#93"+(i+12)+";";
@@ -747,7 +782,19 @@
                 cell8.innerHTML = "　";
                 cell9.innerHTML = "　";
                 cell10.innerHTML = "　";
-                cell11.innerHTML = "&#93"+(i+12)+";";
+                cell11.innerHTML = "　";
+                cell12.innerHTML = "　";
+                cell13.innerHTML = "　";
+                cell14.innerHTML = "　";
+                cell15.innerHTML = "　";
+                cell16.innerHTML = "　";
+                cell17.innerHTML = "　";
+                cell18.innerHTML = "　";
+                cell19.innerHTML = "　";
+                cell20.innerHTML = "　";
+                cell21.innerHTML = "　";
+                cell22.innerHTML = "　";
+                cell23.innerHTML = "&#93"+(i+12)+";";
             }  
 
             var textModMsg = document.getElementById('running');
@@ -957,14 +1004,15 @@
                         clearTimeout(a);
                       }
                 }else{
-                    if(moji_count<=10&&tate_count==1){
+                    if(moji_count<=20&&tate_count==1){
                         txt = c["c"].replace(/　/g, '');
                         textModMsg.innerText = textModMsg.innerText+txt;
                         moji_count = countUp_moji();
                         console.log("ヌナヌナゾーン"+moji_count)
                     }else{
                         txt = c["c"].replace(/　/g, '');
-                        if(txt==""||txt=="゛"){
+
+                        if(txt==""||txt=='\r?\n'){
                             return;
                         }
                         console.log(txt);
@@ -973,17 +1021,12 @@
                         if(moji_count%20==0){
                             var result2=20;
                         }else{
-                            if(moji_count>=21||moji_count<=39){
-                            var result2 = moji_count.toString().slice(-1);
-                            }else if(moji_count>=21||moji_count<=39){
-                                result2= moji_count-20;
-                            }
+                            var result2= moji_count%20;
                         }
-                        console.log("result2"+result2);
-                        tbl.rows[tate_count].cells[result2].innerText = txt;
+                        console.log("result2 "+result2);
+                        tbl.rows[tate_count].cells[result2].innerText = result2;
                         console.log(stop_flag);
-                        if(result2==40){
-                            moji_count=11;
+                        if(result2==20){
                             tate_count = countUp_tate();
                         }else{
                             moji_count = countUp_moji()
