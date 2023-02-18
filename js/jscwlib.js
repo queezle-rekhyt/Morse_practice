@@ -733,8 +733,6 @@
                     var cell18 = rows.insertCell(-1);
                     var cell19 = rows.insertCell(-1);
                     var cell20 = rows.insertCell(-1);
-                    var cell21 = rows.insertCell(-1);
-                    var cell22 = rows.insertCell(-1);
                     var cell23 = rows.insertCell(-1);
                     
                     cell.innerHTML = "＼";
@@ -758,8 +756,6 @@
                     cell18.innerHTML = "&#9329;";
                     cell19.innerHTML = "&#9330;";
                     cell20.innerHTML = "&#9331;";
-                    cell21.innerHTML = "　";
-                    cell22.innerHTML = "　";
                     cell23.innerHTML = "／";
                 }
 
@@ -785,8 +781,6 @@
                 var cell18 = rows.insertCell(-1);
                 var cell19 = rows.insertCell(-1);
                 var cell20 = rows.insertCell(-1);
-                var cell21 = rows.insertCell(-1); 
-                var cell22 = rows.insertCell(-1);
                 var cell23 = rows.insertCell(-1);    
 
                 
@@ -811,8 +805,6 @@
                 cell18.innerHTML = "　";
                 cell19.innerHTML = "　";
                 cell20.innerHTML = "　";
-                cell21.innerHTML = "　";
-                cell22.innerHTML = "　";
                 cell23.innerHTML = "&#93"+(i+12)+";";
             }
             var rows = table.insertRow(-1);
@@ -837,8 +829,6 @@
                     var cell18 = rows.insertCell(-1);
                     var cell19 = rows.insertCell(-1);
                     var cell20 = rows.insertCell(-1);
-                    var cell21 = rows.insertCell(-1);
-                    var cell22 = rows.insertCell(-1);
                     var cell23 = rows.insertCell(-1);
                     
                     cell.innerHTML = "＼";
@@ -862,8 +852,6 @@
                     cell18.innerHTML = "&#9329;";
                     cell19.innerHTML = "&#9330;";
                     cell20.innerHTML = "&#9331;";
-                    cell21.innerHTML = "　";
-                    cell22.innerHTML = "　";
                     cell23.innerHTML = "／";
 
             
@@ -1079,25 +1067,30 @@
                     if(!first_flg){
                         textModMsg.innerText = textModMsg.innerText+txt;
                         console.log("ヌナヌナホレゾーン"+moji_count)
-                        if(moji_count==6){
+                        moji_count = countUp_moji();
+                        if(moji_count==7){
                             first_flg=true;
-                            moji_count=0;
+                            moji_count=1;
                             textModMsg.innerText = textModMsg.innerText+"　";
                         }
-                        if(moji_count==224){
+                        if(moji_count==225){
                             first_flg=true;
-                            moji_count=242;
+                            moji_count=243;
                         }
-                        moji_count = countUp_moji();
                     }else{
-                            
+                            console.log("文字カウント"+moji_count);
+                            console.log("文字"+txt);
                             //console.log(result2);
-                            if(moji_count%22==0){
-                                var result2=22;
+                            if(moji_count%22==21||moji_count%22==0){
+
                             }else{
                                 var result2= moji_count%22;
                             }
-                            tbl.rows[tate_count].cells[result2].innerText = txt;
+                            if(moji_count%22==21 ||moji_count%22==0 ){
+                                
+                            }else{
+                                tbl.rows[tate_count].cells[result2].innerText = txt;
+                            }
                             if(moji_count%22==0){
                                 moji_count = countUp_moji();
                                 tate_count = countUp_tate();
