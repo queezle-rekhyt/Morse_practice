@@ -735,7 +735,7 @@
                     var cell20 = rows.insertCell(-1);
                     var cell23 = rows.insertCell(-1);
                     
-                    cell.innerHTML = "＼";
+                    cell.innerHTML = "／";
                     cell1.innerHTML = "&#9312;";
                     cell2.innerHTML = "&#9313;";
                     cell3.innerHTML = "&#9314;";
@@ -756,7 +756,7 @@
                     cell18.innerHTML = "&#9329;";
                     cell19.innerHTML = "&#9330;";
                     cell20.innerHTML = "&#9331;";
-                    cell23.innerHTML = "／";
+                    cell23.innerHTML = "＼";
                 }
 
                 var rows = table.insertRow(-1);
@@ -831,7 +831,7 @@
                     var cell20 = rows.insertCell(-1);
                     var cell23 = rows.insertCell(-1);
                     
-                    cell.innerHTML = "＼";
+                    cell.innerHTML = "／";
                     cell1.innerHTML = "&#9312;";
                     cell2.innerHTML = "&#9313;";
                     cell3.innerHTML = "&#9314;";
@@ -852,7 +852,7 @@
                     cell18.innerHTML = "&#9329;";
                     cell19.innerHTML = "&#9330;";
                     cell20.innerHTML = "&#9331;";
-                    cell23.innerHTML = "／";
+                    cell23.innerHTML = "＼";
 
             
 
