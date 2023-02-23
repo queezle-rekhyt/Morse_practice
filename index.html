@@ -40,7 +40,7 @@
       </div>
       <table id="tbl" border="0" style="border-collapse: collapse; line-height:1.0">
         <tr>
-          <td>＼</td>
+          <td>　</td>
           <td>&#9312;</td>
           <td>&#9313;</td>
           <td>&#9314;</td>
@@ -61,7 +61,7 @@
           <td>&#9329;</td>
           <td>&#9330;</td>
           <td>&#9331;</td>
-          <td>／</td>
+          <td>　</td>
         </tr>
       </table>
       <br>
@@ -307,11 +307,21 @@ function onoff() {
   if(onoff_flg==true){
     document.getElementById("tbl").border="1"
     onoff_flg=false;
+    for (let i = 0; i < 19; i++){
+      for (let j = 0; j < 22; j++){
+        if(i%6==0){
+          if(j!=0&&j!=21){
+            table.rows[i].cells[j].innerText = "　";
+          }
+        }
+      }
+    table.rows[i].cells[0].innerText = "　";
+    table.rows[i].cells[21].innerText = "　";
+    }
   }else{
     document.getElementById("tbl").border="0"
     onoff_flg=true;
   }
-
 }
     </script>
 </html>
