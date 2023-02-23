@@ -28,7 +28,7 @@
     <!----- main ----->
     <article>
     <div>ランダム生成したトンツー(モールス信号)を再生して受信練習するサイト</div>
-    <button onclick = "onoff();">枠線の表示切り替え</button>
+    <button id="btn" onclick = "onoff();">枠線・行列番号の非表示</button>
     <script>
       //console.log("速度"+document.getElementById("speeder"));
     </script>
@@ -38,7 +38,7 @@
     <section>
       <div id="running">
       </div>
-      <table id="tbl" border="0" style="border-collapse: collapse; line-height:1.0">
+      <table id="tbl" border="1" style="border-collapse: collapse; line-height:1.0">
         <tr>
           <td>　</td>
           <td>&#9312;</td>
@@ -300,28 +300,41 @@ m.onPlay = function () {
 //   // onchangeイベントが発生した時の処理を記述する
 // };
 
+const btn = document.getElementById('btn');
 var onoff_flg=true;
 var num_gyo = document.getElementById("example").value*0.5;
 var table = document.getElementById('tbl');
+
 function onoff() {
   if(onoff_flg==true){
-    document.getElementById("tbl").border="1"
+    btn.textContent = '枠線・行列番号の表示'
+    document.getElementById("tbl").border="0"
     onoff_flg=false;
-    for (let i = 0; i < 19; i++){
-      for (let j = 0; j < 22; j++){
-        if(i%6==0){
-          if(j!=0&&j!=21){
-            table.rows[i].cells[j].innerText = "　";
-          }
+    for(var i=0;table.rows[i];i++) {
+      table.rows[i].cells[0].style.display = 'none';
+      table.rows[i].cells[21].style.display = 'none';
+      if(i%6==0||i==table.rows.length-1){
+        for(var j=0;j<22;j++) {
+            table.rows[i].cells[j].style.display = 'none';
         }
       }
-    table.rows[i].cells[0].innerText = "　";
-    table.rows[i].cells[21].innerText = "　";
     }
   }else{
-    document.getElementById("tbl").border="0"
+    btn.textContent = '枠線・行列番号の非表示'
+    document.getElementById("tbl").border="1"
     onoff_flg=true;
+    for(var i=0;table.rows[i];i++) {
+      table.rows[i].cells[0].style.display = '';
+      table.rows[i].cells[21].style.display = '';
+      if(i%6==0||i==table.rows.length-1){
+        for(var j=0;j<22;j++) {
+            table.rows[i].cells[j].style.display = '';
+        }
+      }  
+    }
   }
 }
+
+
     </script>
 </html>
