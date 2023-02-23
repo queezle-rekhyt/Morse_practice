@@ -1042,7 +1042,8 @@
             //console.log(s);
             var cb = this.onCharacterPlay;
             a = setTimeout(function() { cb(c,s); }, t);
-        }
+　　　}
+
 
         // dummy function - will be called each time a character starts
         // playing, and will receive the position in the string and the
@@ -1066,9 +1067,9 @@
                 }else{
                     if(!first_flg){
                         textModMsg.innerText = textModMsg.innerText+txt;
-                        console.log("ヌナヌナホレゾーン"+moji_count)
+                        console.log("クンクンクンホレゾーン"+moji_count)
                         moji_count = countUp_moji();
-                        if(moji_count==7){
+                        if(moji_count==9){
                             first_flg=true;
                             moji_count=1;
                             textModMsg.innerText = textModMsg.innerText+"　";
@@ -1466,7 +1467,7 @@
             btn_yomiage.onclick = function () {
                 const text = document.getElementById("textarea3").value;
                 if ('speechSynthesis' in window) {
-                var result3 = text.replace(/ヌナヌナホレ\r?\n/g, 'ほんぶん.　　').replace(/ホレメ２\r?\n/g, 'にまいめいきます.　　').replace(/゛゛\r?\n/g, 'つぎのぎょう.　　').replace(/イ/g, 'いろはのい.　　').replace(/ロ/g, 'ろうまのろ.　　').replace(/ハ/g, 'はがきの派.　　').replace(/ニ/g, '日本の似.　　').replace(/ホ/g, 'ほけんのほ.　　').replace(/ヘ/g, '平和の屁.　　').replace(/ト/g, 'とうきょうのと.　　').replace(/チ/g, 'ちどりのち.　　').replace(/リ/g, 'りんごのり.　　').replace(/ヌ/g, 'ぬまずのぬ.　　').replace(/ル/g, 'るすいのる.　　').replace(/ヲ/g, '尾張のを.　　').replace(/ワ/g, 'わらびのわ.　　').replace(/カ/g, '為替の課.　　').replace(/ヨ/g, '吉野の予.　　').replace(/タ/g, 'たばこのた.　　').replace(/レ/g, 'れんげのれ.　　').replace(/ソ/g, 'そろばんのそ.　　').replace(/ツ/g, 'つるかめのつ.　　').replace(/ネ/g, 'ねずみのね.　　').replace(/ナ/g, 'なごやのな.　　').replace(/ラ/g, 'らじおのら.　　').replace(/ム/g, 'むせんのむ.　　').replace(/ウ/g, '上野のう.　　').replace(/井/g, 'いどのい.　　').replace(/ノ/g, '野原の野.　　').replace(/オ/g, '大阪のを.　　').replace(/ク/g, 'くらぶのく.　　').replace(/ヤ/g, 'やまとのや.　　').replace(/マ/g, 'マッチのマ.　　').replace(/ケ/g, 'けしきのけ.　　').replace(/フ/g, 'ふじさんの譜.　　').replace(/コ/g, '子供の個.　　').replace(/エ/g, 'えいごのえ.　　').replace(/テ/g, '手紙の手.　　').replace(/ア/g, 'あさひのあ.　　').replace(/サ/g, '桜の差.　　').replace(/キ/g, 'きってのき.　　').replace(/ユ/g, 'ゆみやのゆ.　　').replace(/メ/g, '明治の目.　　').replace(/ミ/g, 'みかさのみ.　　').replace(/シ/g, 'しんぶんのし.　　').replace(/ヱ/g, 'かぎのあるえ.　　').replace(/ヒ/g, 'ひこうきのひ.　　').replace(/モ/g, 'もみじのも.　　').replace(/セ/g, 'せかいのせ.　　').replace(/ス/g, 'すずめのす.　　').replace(/ン/g, 'おしまいのん.　　').replace(/（/g, 'はじめかっこ.　　').replace(/ー/g, 'ちょうおん.　　').replace(/┗/g, 'だんらく.　　').replace(/？/g, 'もんぷ.　　').replace(/ゝ/g, 'くぎりてん.　　').replace(/゛/g, 'だくてん.　　').replace(/゜/g, 'はんだくてん.　　').replace(/）/g, 'おわりかっこ.　　').replace(/１/g, 'すうじのひと.　　').replace(/２/g, 'すうじのに.　　').replace(/３/g, 'すうじの３.　　').replace(/４/g, 'すうじの４.　　').replace(/５/g, 'すうじのご.　　').replace(/６/g, 'すうじのろく.　　').replace(/７/g, 'すうじのなな.　　').replace(/８/g, 'すうじのはち.　　').replace(/９/g, 'すうじのきゅう.　　').replace(/０/g, 'すうじのまる.　　');
+                var result3 = text.replace(/クンクンクンホレ\r?\n/g, 'ほんぶん.　　').replace(/ホレメ２\r?\n/g, 'にまいめいきます.　　').replace(/゛゛\r?\n/g, 'つぎのぎょう.　　').replace(/イ/g, 'いろはのい.　　').replace(/ロ/g, 'ろうまのろ.　　').replace(/ハ/g, 'はがきの派.　　').replace(/ニ/g, '日本の似.　　').replace(/ホ/g, 'ほけんのほ.　　').replace(/ヘ/g, '平和の屁.　　').replace(/ト/g, 'とうきょうのと.　　').replace(/チ/g, 'ちどりのち.　　').replace(/リ/g, 'りんごのり.　　').replace(/ヌ/g, 'ぬまずのぬ.　　').replace(/ル/g, 'るすいのる.　　').replace(/ヲ/g, '尾張のを.　　').replace(/ワ/g, 'わらびのわ.　　').replace(/カ/g, '為替の課.　　').replace(/ヨ/g, '吉野の予.　　').replace(/タ/g, 'たばこのた.　　').replace(/レ/g, 'れんげのれ.　　').replace(/ソ/g, 'そろばんのそ.　　').replace(/ツ/g, 'つるかめのつ.　　').replace(/ネ/g, 'ねずみのね.　　').replace(/ナ/g, 'なごやのな.　　').replace(/ラ/g, 'らじおのら.　　').replace(/ム/g, 'むせんのむ.　　').replace(/ウ/g, '上野のう.　　').replace(/井/g, 'いどのい.　　').replace(/ノ/g, '野原の野.　　').replace(/オ/g, '大阪のを.　　').replace(/ク/g, 'くらぶのく.　　').replace(/ヤ/g, 'やまとのや.　　').replace(/マ/g, 'マッチのマ.　　').replace(/ケ/g, 'けしきのけ.　　').replace(/フ/g, 'ふじさんの譜.　　').replace(/コ/g, '子供の個.　　').replace(/エ/g, 'えいごのえ.　　').replace(/テ/g, '手紙の手.　　').replace(/ア/g, 'あさひのあ.　　').replace(/サ/g, '桜の差.　　').replace(/キ/g, 'きってのき.　　').replace(/ユ/g, 'ゆみやのゆ.　　').replace(/メ/g, '明治の目.　　').replace(/ミ/g, 'みかさのみ.　　').replace(/シ/g, 'しんぶんのし.　　').replace(/ヱ/g, 'かぎのあるえ.　　').replace(/ヒ/g, 'ひこうきのひ.　　').replace(/モ/g, 'もみじのも.　　').replace(/セ/g, 'せかいのせ.　　').replace(/ス/g, 'すずめのす.　　').replace(/ン/g, 'おしまいのん.　　').replace(/（/g, 'はじめかっこ.　　').replace(/ー/g, 'ちょうおん.　　').replace(/┗/g, 'だんらく.　　').replace(/？/g, 'もんぷ.　　').replace(/ゝ/g, 'くぎりてん.　　').replace(/゛/g, 'だくてん.　　').replace(/゜/g, 'はんだくてん.　　').replace(/）/g, 'おわりかっこ.　　').replace(/１/g, 'すうじのひと.　　').replace(/２/g, 'すうじのに.　　').replace(/３/g, 'すうじの３.　　').replace(/４/g, 'すうじの４.　　').replace(/５/g, 'すうじのご.　　').replace(/６/g, 'すうじのろく.　　').replace(/７/g, 'すうじのなな.　　').replace(/８/g, 'すうじのはち.　　').replace(/９/g, 'すうじのきゅう.　　').replace(/０/g, 'すうじのまる.　　');
                 console.log(result3);
                 uttr = new SpeechSynthesisUtterance(result3);
                 //速さ
