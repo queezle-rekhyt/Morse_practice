@@ -202,7 +202,7 @@
         this.freq = 600;
         this.volume = 0.5;      // relative volume how CW is generated internally
         this.playvolume = 2;    // player volume (relative * player volume = total volume)
-        this.yomiage = 1;
+        this.yomiage = 1.3;
         this.q = 10;
         this.dotlen;
         this.playLength = 0;
@@ -698,6 +698,10 @@
         }
 
         this.play = function(playtext) {
+            document.getElementById('btnpp').style.visibility = 'hidden'
+            document.getElementById('btnran').style.visibility = 'hidden'
+            document.getElementById('btnyomiage').style.visibility = 'hidden'
+            document.getElementById("btnstop").style.visibility = 'visible'
             moji_count = 1;
             tate_count = 1;
             first_flg=false;
@@ -857,7 +861,7 @@
             
 
             var textModMsg = document.getElementById('running');
-            textModMsg.innerText = "";
+            textModMsg.innerHTML = "　";
             if (!this.init_done) {
                 this.init();
             }
@@ -1009,6 +1013,10 @@
 
         this.stop = function() {
             window.speechSynthesis.cancel();
+            document.getElementById('btnran').style.visibility = 'visible'
+            document.getElementById("btnstop").style.visibility="hidden";
+            document.getElementById("btnyomiage").style.visibility = 'visible';
+            document.getElementById('btnpp').style.visibility = 'visible'
             if (this.mode == 'audio') {
                 this.gainNode.gain.cancelScheduledValues(this.audioCtx.currentTime);
                 this.gainNode.gain.setValueAtTime(0, this.audioCtx.currentTime);
@@ -1049,7 +1057,7 @@
         // playing, and will receive the position in the string and the
         // character itself in "c"
         var textModMsg = document.getElementById('running');
-        textModMsg.innerText = "";
+        textModMsg.innerHTML = "　";
         var s = 0;
         this.onCharacterPlay = function (c,s) {
             txt = c["c"].replace(/　/g, '')
@@ -1357,6 +1365,7 @@
             obj.setProgressbar(pb, l);
 
             var btn_pp = document.createElement("img");
+            btn_pp.id="btnpp";
             btn_pp.src = play_svg;
             btn_pp.title = "Play / Pause";
             btn_pp.style.borderRadius = "3px";
@@ -1383,6 +1392,7 @@
             }
             var btn_stop = document.createElement("img");
             btn_stop.title = obj.text;
+            btn_stop.id="btnstop";
             btn_stop.style.borderRadius = "3px";
             btn_stop.style.backgroundColor = "#dadada";
             btn_stop.style.cursor = "pointer";
@@ -1391,6 +1401,7 @@
             btn_stop.style.padding = "0px 0px";
             btn_stop.style.margin = "4px";
             btn_stop.style.display = "inline-block";
+            btn_stop.style.visibility = 'hidden';
             btn_stop.style.textDecoration = "none";
             btn_stop.style.verticalAlign = "middle";
             btn_stop.style.color = "#000000";
@@ -1404,6 +1415,7 @@
 
             var btn_ran = document.createElement("img");
             btn_ran.title = obj.text;
+            btn_ran.id="btnran"
             btn_ran.style.borderRadius = "3px";
             btn_ran.style.backgroundColor = "#dadada";
             btn_ran.style.cursor = "pointer";
@@ -1447,6 +1459,7 @@
             // }
 
             var btn_yomiage = document.createElement("img");
+            btn_yomiage.id = "btnyomiage";
             btn_yomiage.title = obj.text;
             btn_yomiage.style.borderRadius = "3px";
             btn_yomiage.style.backgroundColor = "#dadada";
@@ -1465,6 +1478,10 @@
             btn_yomiage.style.height = "25px";
             var uttr;
             btn_yomiage.onclick = function () {
+                document.getElementById("btnyomiage").style.visibility = 'hidden';
+                document.getElementById("btnpp").style.visibility = 'hidden';
+                document.getElementById("btnstop").style.visibility = 'visible'
+                document.getElementById('btnran').style.visibility = 'hidden'
                 const text = document.getElementById("textarea3").value;
                 if ('speechSynthesis' in window) {
                 var result3 = text.replace(/クンクンクンホレ\r?\n/g, 'ほんぶん.　　').replace(/ホレメ２\r?\n/g, 'にまいめいきます.　　').replace(/゛゛\r?\n/g, 'つぎのぎょう.　　').replace(/イ/g, 'いろはのい.　　').replace(/ロ/g, 'ろうまのろ.　　').replace(/ハ/g, 'はがきの派.　　').replace(/ニ/g, '日本の似.　　').replace(/ホ/g, 'ほけんのほ.　　').replace(/ヘ/g, '平和の屁.　　').replace(/ト/g, 'とうきょうのと.　　').replace(/チ/g, 'ちどりのち.　　').replace(/リ/g, 'りんごのり.　　').replace(/ヌ/g, 'ぬまずのぬ.　　').replace(/ル/g, 'るすいのる.　　').replace(/ヲ/g, '尾張のを.　　').replace(/ワ/g, 'わらびのわ.　　').replace(/カ/g, '為替の課.　　').replace(/ヨ/g, '吉野の予.　　').replace(/タ/g, 'たばこのた.　　').replace(/レ/g, 'れんげのれ.　　').replace(/ソ/g, 'そろばんのそ.　　').replace(/ツ/g, 'つるかめのつ.　　').replace(/ネ/g, 'ねずみのね.　　').replace(/ナ/g, 'なごやのな.　　').replace(/ラ/g, 'らじおのら.　　').replace(/ム/g, 'むせんのむ.　　').replace(/ウ/g, '上野のう.　　').replace(/井/g, 'いどのい.　　').replace(/ノ/g, '野原の野.　　').replace(/オ/g, '大阪のを.　　').replace(/ク/g, 'くらぶのく.　　').replace(/ヤ/g, 'やまとのや.　　').replace(/マ/g, 'マッチのマ.　　').replace(/ケ/g, 'けしきのけ.　　').replace(/フ/g, 'ふじさんの譜.　　').replace(/コ/g, '子供の個.　　').replace(/エ/g, 'えいごのえ.　　').replace(/テ/g, '手紙の手.　　').replace(/ア/g, 'あさひのあ.　　').replace(/サ/g, '桜の差.　　').replace(/キ/g, 'きってのき.　　').replace(/ユ/g, 'ゆみやのゆ.　　').replace(/メ/g, '明治の目.　　').replace(/ミ/g, 'みかさのみ.　　').replace(/シ/g, 'しんぶんのし.　　').replace(/ヱ/g, 'かぎのあるえ.　　').replace(/ヒ/g, 'ひこうきのひ.　　').replace(/モ/g, 'もみじのも.　　').replace(/セ/g, 'せかいのせ.　　').replace(/ス/g, 'すずめのす.　　').replace(/ン/g, 'おしまいのん.　　').replace(/（/g, 'はじめかっこ.　　').replace(/ー/g, 'ちょうおん.　　').replace(/┗/g, 'だんらく.　　').replace(/？/g, 'もんぷ.　　').replace(/ゝ/g, 'くぎりてん.　　').replace(/゛/g, 'だくてん.　　').replace(/゜/g, 'はんだくてん.　　').replace(/）/g, 'おわりかっこ.　　').replace(/１/g, 'すうじのひと.　　').replace(/２/g, 'すうじのに.　　').replace(/３/g, 'すうじの３.　　').replace(/４/g, 'すうじの４.　　').replace(/５/g, 'すうじのご.　　').replace(/６/g, 'すうじのろく.　　').replace(/７/g, 'すうじのなな.　　').replace(/８/g, 'すうじのはち.　　').replace(/９/g, 'すうじのきゅう.　　').replace(/０/g, 'すうじのまる.　　');
