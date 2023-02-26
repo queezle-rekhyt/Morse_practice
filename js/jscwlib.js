@@ -1049,9 +1049,15 @@
         this.setCharacterCb = function (c, t, s) {
             //console.log(s);
             var cb = this.onCharacterPlay;
-            a = setTimeout(function() { cb(c,s); }, t);
+            a = setTimeout(function() { cb(c,s,t); }, t);
 　　　}
 
+        function sleep(waitMsec) {
+            var startMsec = new Date();
+        
+            // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
+            while (new Date() - startMsec < waitMsec);
+        }
 
         // dummy function - will be called each time a character starts
         // playing, and will receive the position in the string and the
@@ -1059,7 +1065,8 @@
         var textModMsg = document.getElementById('running');
         textModMsg.innerHTML = "　";
         var s = 0;
-        this.onCharacterPlay = function (c,s) {
+        var priviou_time=0;
+        this.onCharacterPlay = function (c,s,t) {
             txt = c["c"].replace(/　/g, '')
             txt = txt.replace(/\r?\n/g, '');
             if(txt==""){
@@ -1098,6 +1105,7 @@
                             if(moji_count%22==21 ||moji_count%22==0 ){
                                 
                             }else{
+                                sleep(t-priviou_time)
                                 tbl.rows[tate_count].cells[result2].innerText = txt;
                             }
                             if(moji_count%22==0){
@@ -1115,6 +1123,7 @@
                     }
                 }
             }
+            priviou_time=t;
         }
 
 
