@@ -1105,7 +1105,7 @@
                             if(moji_count%22==21 ||moji_count%22==0 ){
                                 
                             }else{
-                                sleep(t-priviou_time)
+                                //sleep(t-priviou_time)
                                 tbl.rows[tate_count].cells[result2].innerText = txt;
                             }
                             if(moji_count%22==0){
