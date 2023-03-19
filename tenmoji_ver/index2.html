@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWQJNG2M6L"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-DWQJNG2M6L');
+      </script>
+    <meta charset="utf-8">
+    <title>トンツーのランダム生成と再生(10文字ver)
+    </title>
+    <meta name="description" content="ディスクリプションを入力">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js2/jquery-3.6.32.min.js"></script>
+    <script src="js2/jscwlib2.js"></script>
+    <style>
+      .body{
+        overflow-x: hidden;
+      }
+  </style>
+    </head>
+    <body>
+    <!----- main ----->
+    <article>
+    <div>トンツーのランダム生成と再生(10文字ver)</div>
+    <script>
+      //console.log("速度"+document.getElementById("speeder"));
+    </script>
+    <!-- <button onclick = "window.location.reload();">
+      ページ更新
+      </button> -->
+    <section>
+      <div id="running">
+      </div>
+      <br>
+    <textarea id="textarea3" class="test" cols="100px" rows="12px" name="content" required="required">ヌナヌナメ&#13ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ　ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ゛゛&#13ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ　ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ゛゛&#13ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ　ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ゛゛&#13ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ　ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ゛゛&#13ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ　ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ゛゛&#13</textarea>
+<br>
+    <!-- <button onclick = "rensyu()">
+    書き取り練習
+    </button> -->
+    <label id="hunmoji" style="float:left;">０文字／分</label>
+    <br>
+    <div id="player"></div>
+    <script>
+    var m = new jscw({"wpm": 26,"ews":0.5,"eff":14});
+    m.renderPlayer('player', m);
+    </script>
+    <hr>
+    文の長さ<br>
+    <input type="range" id="example" value="5" min="1" max="10" step="1" style="width:200px;margin-left:5px";><span id="current-value"></span>
+    <hr><br><br><br><br>
+    <br><br>
+    <input type="checkbox" id="checkbox_all" checked="checked" hidden>
+      <hr>
+    <div hidden>
+      ノ<input type="checkbox" class="checkbox_list" name="" value="ノ" checked="checked">
+      フ<input type="checkbox" class="checkbox_list" name="" value="フ" checked="checked">
+      ラ<input type="checkbox" class="checkbox_list" name="" value="ラ" checked="checked">
+      ヨ<input type="checkbox" class="checkbox_list" name="" value="ヨ" checked="checked">
+      ツ<input type="checkbox" class="checkbox_list" name="" value="ツ" checked="checked">
+      ロ<input type="checkbox" class="checkbox_list" name="" value="ロ" checked="checked">
+      ナ<input type="checkbox" class="checkbox_list" name="" value="ナ" checked="checked">
+      ホ<input type="checkbox" class="checkbox_list" name="" value="ホ" checked="checked">
+      キ<input type="checkbox" class="checkbox_list" name="" value="キ" checked="checked">
+      レ<input type="checkbox" class="checkbox_list" name="" value="レ" checked="checked">
+    </div>
+      <br>
+    </section>
+    </article>
+    </body>
+    <script>
+
+
+
+function teishi(){
+  window.speechSynthesis.cancel();
+}
+
+//全選択のチェックボックス
+let checkbox_all = document.querySelector("#checkbox_all");
+//チェックボックスのリスト
+let checkbox_list = document.querySelectorAll(".checkbox_list");
+
+//全選択のチェックボックスイベント
+checkbox_all.addEventListener('change', change_all);
+
+
+function change_all() {
+
+  //チェックされているか
+  if (checkbox_all.checked) {
+    //全て選択
+    for (let i in checkbox_list) {
+      if (checkbox_list.hasOwnProperty(i)) {
+        checkbox_list[i].checked = true;
+      }
+    }
+    
+  } else {
+    //全て解除
+    for (let i in checkbox_list) {
+      if (checkbox_list.hasOwnProperty(i)) {
+        checkbox_list[i].checked = false;
+      }
+    }
+    
+  }
+
+};
+
+
+        const inputElem = document.getElementById('example'); // input要素
+        const currentValueElem = document.getElementById('current-value'); // 埋め込む先のspan要素
+
+        // 現在の値をspanに埋め込む関数
+        const setCurrentValue = (val) => {
+            currentValueElem.innerText = val+'行('+ val*40 +'文字)';
+            var val =val*40;
+
+            //チェックボックスに入ってるもの確認
+            area = $('[class="checkbox_list"]:checked').map(function(){
+            //$(this)でjQueryオブジェクトが取得できる。val()で値をvalue値を取得。
+            return $(this).val();
+            }).get();
+            //mapの結果がjQueryオブジェクトの配列で返ってくるので、get()で生配列を取得する。
+            //console.log(area);
+            //['kantou','touhoku']のような形で取得できる。
+            console.log(area.join(''));
+
+            var S = area.join('');
+            //var S="イロハニホヘトチリヌルヲワカヨタレソツネナラムウヰノオクヤマケフコエテアサキユメミシヱヒモセスン（ー」？、゛゜）１２３４５６７８９０"
+            var rand_str = 'ヌナヌナメ\n';
+            
+            for ( var i = 1; i <= val; i++ ) {
+                rand_str += S.charAt(Math.floor(Math.random() * S.length));
+                if (i%40 == 0 && i!=val) {
+                    rand_str += "゛゛\n";
+                    if (i == 200){
+                        rand_str += "　　　ホレメ２\n";
+                    }
+                }else{
+                  if(i%4==0 && i!=val){
+                    rand_str += "　";
+                  }
+                }
+            }
+
+            var text = document.getElementsByTagName("textarea")[0];
+            text.value=rand_str;
+
+        
+        }
+
+        // inputイベント時に値をセットする関数
+        const rangeOnChange = (e) =>{
+        setCurrentValue(e.target.value);
+        }
+
+        function rensyu() {
+
+
+        var text = document.getElementsByTagName("textarea")[0];
+
+        text.value="ヌナヌナメ\nノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ　ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ゛゛\nノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ　ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ゛゛\nノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ　ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ゛゛\nノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ　ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ゛゛\nノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ　ノフラヨ　ツロナホ　キレノフ　ラヨツロ　ナホキレ゛゛\n";
+        var textModMsg = document.getElementById('running');
+        textModMsg.innerText = "";
+        }
+
+window.onload = () => {
+        // スライダー変化時にイベントを発火
+        inputElem.addEventListener('input', rangeOnChange);
+        setCurrentValue(inputElem.value); // ページ読み込み時に値をセット
+        rensyu();
+        }
+
+        function randome(){
+          // スライダー変化時にイベントを発火
+        inputElem.addEventListener('input', rangeOnChange);
+        setCurrentValue(inputElem.value);
+        var textModMsg = document.getElementById('running');
+        textModMsg.innerText = "";
+        }
+
+m.onPlay = function () { 
+    var txt = document.getElementById("textarea3").value;
+    txt = txt.replace(/ヘ/g, 'ヘ　');
+    txt = txt.replace(/ム/g, 'ム　');
+    //゛゛/nでない「゛」を「゛　」に変換する
+    txt = txt.replace(/゛　゛　\r?\n/g, '゛゛\n');
+    m.setText(txt);
+    console.log("再生内容:"+ txt)
+    //document.getElementsByTagName("textarea")[0].value=txt
+
+}
+
+// document.getElementById("example").onchange = function() {
+//   // onchangeイベントが発生した時の処理を記述する
+// };
+    </script>
+</html>
