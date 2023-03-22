@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWQJNG2M6L"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-DWQJNG2M6L');
+      </script>
+    <meta charset="utf-8">
+    <title>トンツー(モールス信号)の符号、合調音、通話表を覚えるサイト(仮)
+    </title>
+    <meta name="description" content="ディスクリプションを入力">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <script src="jquery-3.6.3.min.js"></script>
+    <script src="jscwlib.js"></script>
+
+    <style>
+      .body{
+        overflow-x: hidden;
+
+      }
+      td{
+        height:45px
+      }
+      .button_list{
+        width:100%;
+        height:100%;
+        background: transparent;
+        font-size:20px
+      }
+  </style>
+    </head>
+    <body>
+    <!----- main ----->
+    <article>
+    <div>トンツー(モールス信号)の符号、合調音、通話表を覚えるサイト(仮)</div>
+
+    <section>
+      <span id="running">　</span>
+    <div id="player"></div>
+    <script>
+    var m = new jscw({"wpm": 15,"ews":0.5});
+    m.renderPlayer('player', m);
+    </script>
+    符号<input type="checkbox" id="hu" class="checkbox_list" name="" value="符号" checked="checked">
+    合調音<input type="checkbox" id="go" class="checkbox_list" name="" value="合調音" checked="checked">
+    通話表<input type="checkbox" id="tu" class="checkbox_list" name="" value="通話表" checked="checked">
+    <br><br>
+    <table border="1" style="border-collapse: collapse; line-height:1.0;width:100% ">
+      <tbody>
+          <tr>
+              <td><input type="button" class="button_list" name="" value="ア" ></td>
+              <td><input type="button" class="button_list" name="" value="イ" ></td>
+              <td><input type="button" class="button_list" name="" value="ウ" ></td>
+              <td><input type="button" class="button_list" name="" value="エ" ></td>
+              <td><input type="button" class="button_list" name="" value="オ" ></td>
+              <td><input type="button" class="button_list" name="" value="（" ></td>
+          </tr>
+          <tr>
+            <td><input type="button" class="button_list" name="" value="カ" ></td>
+            <td><input type="button" class="button_list" name="" value="キ" ></td>
+            <td><input type="button" class="button_list" name="" value="ク" ></td>
+            <td><input type="button" class="button_list" name="" value="ケ" ></td>
+            <td><input type="button" class="button_list" name="" value="コ" ></td>
+            <td><input type="button" class="button_list" name="" value="ー" ></td>
+        </tr>
+        <tr>
+          <td><input type="button" class="button_list" name="" value="サ" ></td>
+          <td><input type="button" class="button_list" name="" value="シ" ></td>
+          <td><input type="button" class="button_list" name="" value="ス" ></td>
+          <td><input type="button" class="button_list" name="" value="セ" ></td>
+          <td><input type="button" class="button_list" name="" value="ソ" ></td>
+          <td><input type="button" class="button_list" name="" value="┗" ></td>
+      </tr>
+      <tr>
+        <td><input type="button" class="button_list" name="" value="タ" ></td>
+        <td><input type="button" class="button_list" name="" value="チ" ></td>
+        <td><input type="button" class="button_list" name="" value="ツ" ></td>
+        <td><input type="button" class="button_list" name="" value="テ" ></td>
+        <td><input type="button" class="button_list" name="" value="ト" ></td>
+        <td><input type="button" class="button_list" name="" value="？" ></td>
+    </tr>
+    <tr>
+      <td><input type="button" class="button_list" name="" value="ナ" ></td>
+      <td><input type="button" class="button_list" name="" value="ニ" ></td>
+      <td><input type="button" class="button_list" name="" value="ヌ" ></td>
+      <td><input type="button" class="button_list" name="" value="ネ" ></td>
+      <td><input type="button" class="button_list" name="" value="ノ" ></td>
+      <td><input type="button" class="button_list" name="" value="ゝ" ></td>
+  </tr>
+  <tr>
+  <td><input type="button" class="button_list" name="" value="ハ" ></td>
+    <td><input type="button" class="button_list" name="" value="ヒ" ></td>
+    <td><input type="button" class="button_list" name="" value="フ" ></td>
+    <td><input type="button" class="button_list" name="" value="ヘ" ></td>
+    <td><input type="button" class="button_list" name="" value="ホ" ></td>
+    <td><input type="button" class="button_list" name="" value="゛" ></td>
+  </tr>
+  <tr>
+    <td><input type="button" class="button_list" name="" value="マ" ></td>
+    <td><input type="button" class="button_list" name="" value="ミ" ></td>
+    <td><input type="button" class="button_list" name="" value="ム" ></td>
+    <td><input type="button" class="button_list" name="" value="メ" ></td>
+    <td><input type="button" class="button_list" name="" value="モ" ></td>
+    <td><input type="button" class="button_list" name="" value="゜" ></td>
+  </tr>
+  <tr>
+    <td><input type="button" class="button_list" name="" value="ヤ" ></td>
+    <td></td>
+    <td><input type="button" class="button_list" name="" value="ユ" ></td>
+    <td></td>
+    <td><input type="button" class="button_list" name="" value="ヨ" ></td>
+    <td><input type="button" class="button_list" name="" value="）" ></td>
+
+  </tr>
+  <tr>
+    <td><input type="button" class="button_list" name="" value="ラ" ></td>
+    <td><input type="button" class="button_list" name="" value="リ" ></td>
+    <td><input type="button" class="button_list" name="" value="ル" ></td>
+    <td><input type="button" class="button_list" name="" value="レ" ></td>
+    <td><input type="button" class="button_list" name="" value="ロ" ></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><input type="button" class="button_list" name="" value="ワ" ></td>
+    <td><input type="button" class="button_list" name="" value="井" ></td>
+    <td><input type="button" class="button_list" name="" value="ヱ" ></td>
+    <td><input type="button" class="button_list" name="" value="ヲ" ></td>
+    <td><input type="button" class="button_list" name="" value="ン" ></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><input type="button" class="button_list" name="" value="１" ></td>
+    <td><input type="button" class="button_list" name="" value="２" ></td>
+    <td><input type="button" class="button_list" name="" value="３" ></td>
+    <td><input type="button" class="button_list" name="" value="４" ></td>
+    <td><input type="button" class="button_list" name="" value="５" ></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><input type="button" class="button_list" name="" value="６" ></td>
+    <td><input type="button" class="button_list" name="" value="７" ></td>
+    <td><input type="button" class="button_list" name="" value="８" ></td>
+    <td><input type="button" class="button_list" name="" value="９" ></td>
+    <td><input type="button" class="button_list" name="" value="０" ></td>
+    <td></td>
+  </tr>
+
+      </tbody>
+  </table>
+      
+
+
+    </section>
+    </article>
+    <!----- /main ----->
+    <br>
+    <a href="../index.html">トップページ</a><br>
+    <a href="../tenmoji_ver/index2.html">10文字ver</a>
+
+    </body>
+    <script>
+    var textModMsg = document.getElementById('running');
+    $('.button_list').click(function(){
+    var selectNo = $(this).val();
+    //alert(selectNo);
+    textModMsg.innerHTML = "　";
+    if (document.getElementById('hu').checked) {
+        textModMsg.innerHTML = selectNo;
+        m.play(selectNo);
+    }
+    if (document.getElementById('go').checked) {
+        sleep(2500);
+        gotyo(selectNo)
+    }
+    if (document.getElementById('tu').checked) {
+        sleep(3000);
+        yomiage(selectNo)
+    }
+})
+
+function gotyo(selectNo){
+    if ('speechSynthesis' in window) {
+    var result3 = selectNo.replace(/イ/g, '伊藤.　　').replace(/ロ/g, '路上歩行.　　').replace(/ハ/g, 'はあもにか.　　').replace(/ニ/g, '入費増加.　　').replace(/ホ/g, '報告.　　').replace(/ヘ/g, '屁.　　').replace(/ト/g, '特等席.　　').replace(/チ/g, '地価騰貴.　　').replace(/リ/g, '流行地.　　').replace(/ヌ/g, 'ぬりもの.　　').replace(/ル/g, 'るうる修正す.　　').replace(/ヲ/g, '和尚焼香.　　').replace(/ワ/g, 'わあという.　　').replace(/カ/g, '下等席.　　').replace(/ヨ/g, '要綱.　　').replace(/タ/g, 'たある.　　').replace(/レ/g, '礼装用.　　').replace(/ソ/g, '相当高価.　　').replace(/ツ/g, '都合どうか.　　').replace(/ネ/g, 'ねえそうだろう.　　').replace(/ナ/g, 'なろおた.　　').replace(/ラ/g, 'らむね.　　').replace(/ム/g, 'むうう.　　').replace(/ウ/g, 'うたごお.　　').replace(/井/g, '威光発揚.　　').replace(/ノ/g, '乃木東郷.　　').replace(/オ/g, '思う心.　　').replace(/ク/g, '苦しそう.　　').replace(/ヤ/g, '野球場.　　').replace(/マ/g, 'まあ任そう.　　').replace(/ケ/g, '経過良好.　　').replace(/フ/g, '封筒貼る.　　').replace(/コ/g, '高等工業.　　').replace(/エ/g, '英語ABC.　　').replace(/テ/g, 'てすうな方法.　　').replace(/ア/g, 'ああいうとこういう.　　').replace(/サ/g, 'さあいこういこう.　　').replace(/キ/g, '聞いて報告.　　').replace(/ユ/g, '夕刻郵送.　　').replace(/メ/g, '名月だろう.　　').replace(/ミ/g, '見せよう見よう.　　').replace(/シ/g, '周到な注意.　　').replace(/ヱ/g, '回向冥福.　　').replace(/ヒ/g, '標高測定.　　').replace(/モ/g, '孟子と孔子.　　').replace(/セ/g, '世評良好だ.　　').replace(/ス/g, '数量調査票.　　').replace(/ン/g, 'うめえうめえな.　　').replace(/（/g, '方位用法記号.　　').replace(/ー/g, 'なごお棒書こう.　　').replace(/┗/g, 'ちごおたこおもく.　　').replace(/？/g, 'うたごおよおだが.　　').replace(/ゝ/g, 'とめえとめえとめえ.　　').replace(/゛/g, 'だく.　　').replace(/゜/g, 'ぱす通用機.　　').replace(/）/g, 'うほおから閉鎖.　　').replace(/１/g, '飛行操縦法.　　').replace(/２/g, 'ふたじゅうめえたあ.　　').replace(/３/g, 'みつき友好.　　').replace(/４/g, 'よつやくちょお.　　').replace(/５/g, '五目飯.　　').replace(/６/g, 'ろうそく立て.　　').replace(/７/g, 'なあもおななつ.　　').replace(/８/g, 'やあやあもおきた.　　').replace(/９/g, '空中航行機.　　').replace(/０/g, '冷凍法良好.　　');
+    textModMsg.innerHTML = textModMsg.innerHTML+"　"+result3
+    console.log(result3);
+    uttr = new SpeechSynthesisUtterance(result3);
+    //速さ
+    uttr.rate = 1;
+    // 高さ 0-2 初期値:1
+    uttr.pitch = 0;
+    // 音量 0-1 初期値:1
+    uttr.volume = 1.5;
+    window.speechSynthesis.speak(uttr);
+} else {
+        alert('大変申し訳ありません。このブラウザは音声合成に対応していません。')
+    }
+}
+
+function yomiage(selectNo){
+    if ('speechSynthesis' in window) {
+    var result3 = selectNo.replace(/イ/g, 'いろはのい.　　').replace(/ロ/g, 'ろうまのろ.　　').replace(/ハ/g, 'はがきの派.　　').replace(/ニ/g, '日本の似.　　').replace(/ホ/g, 'ほけんのほ.　　').replace(/ヘ/g, '平和の屁.　　').replace(/ト/g, 'とうきょうのと.　　').replace(/チ/g, 'ちどりのち.　　').replace(/リ/g, 'りんごのり.　　').replace(/ヌ/g, 'ぬまずのぬ.　　').replace(/ル/g, 'るすいのる.　　').replace(/ヲ/g, '尾張のを.　　').replace(/ワ/g, 'わらびのわ.　　').replace(/カ/g, '為替の課.　　').replace(/ヨ/g, '吉野の予.　　').replace(/タ/g, 'たばこのた.　　').replace(/レ/g, 'れんげのれ.　　').replace(/ソ/g, 'そろばんのそ.　　').replace(/ツ/g, 'つるかめのつ.　　').replace(/ネ/g, 'ねずみのね.　　').replace(/ナ/g, 'なごやのな.　　').replace(/ラ/g, 'らじおのら.　　').replace(/ム/g, 'むせんのむ.　　').replace(/ウ/g, '上野のう.　　').replace(/井/g, 'いどのい.　　').replace(/ノ/g, '野原の野.　　').replace(/オ/g, '大阪のを.　　').replace(/ク/g, 'くらぶのく.　　').replace(/ヤ/g, 'やまとのや.　　').replace(/マ/g, 'マッチのマ.　　').replace(/ケ/g, 'けしきのけ.　　').replace(/フ/g, 'ふじさんの譜.　　').replace(/コ/g, '子供の個.　　').replace(/エ/g, 'えいごのえ.　　').replace(/テ/g, '手紙の手.　　').replace(/ア/g, 'あさひのあ.　　').replace(/サ/g, '桜の差.　　').replace(/キ/g, 'きってのき.　　').replace(/ユ/g, 'ゆみやのゆ.　　').replace(/メ/g, '明治の目.　　').replace(/ミ/g, 'みかさのみ.　　').replace(/シ/g, 'しんぶんのし.　　').replace(/ヱ/g, 'かぎのあるえ.　　').replace(/ヒ/g, 'ひこうきのひ.　　').replace(/モ/g, 'もみじのも.　　').replace(/セ/g, 'せかいのせ.　　').replace(/ス/g, 'すずめのす.　　').replace(/ン/g, 'おしまいのん.　　').replace(/（/g, 'はじめかっこ.　　').replace(/ー/g, 'ちょうおん.　　').replace(/┗/g, 'だんらく.　　').replace(/？/g, 'もんぷ.　　').replace(/ゝ/g, 'くぎりてん.　　').replace(/゛/g, 'だくてん.　　').replace(/゜/g, 'はんだくてん.　　').replace(/）/g, 'おわりかっこ.　　').replace(/１/g, 'すうじのひと.　　').replace(/２/g, 'すうじのに.　　').replace(/３/g, 'すうじの３.　　').replace(/４/g, 'すうじの４.　　').replace(/５/g, 'すうじのご.　　').replace(/６/g, 'すうじのろく.　　').replace(/７/g, 'すうじのなな.　　').replace(/８/g, 'すうじのはち.　　').replace(/９/g, 'すうじのきゅう.　　').replace(/０/g, 'すうじのまる.　　');
+    textModMsg.innerHTML = textModMsg.innerHTML+"　"+result3
+    console.log(result3);
+    uttr = new SpeechSynthesisUtterance(result3);
+    //速さ
+    uttr.rate = 1;
+    // 高さ 0-2 初期値:1
+    uttr.pitch = 0;
+    // 音量 0-1 初期値:1
+    uttr.volume = 1.5;
+    window.speechSynthesis.speak(uttr);
+    } else {
+        alert('大変申し訳ありません。このブラウザは音声合成に対応していません。')
+    }
+}
+
+
+function sleep(waitMsec) {
+  var startMsec = new Date();
+ 
+  // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
+  while (new Date() - startMsec < waitMsec);
+}
+
+    </script>
+</html>
