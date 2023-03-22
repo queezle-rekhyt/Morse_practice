@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/*
+ * Checkbox personnalisation using the :checked pseudo-class
+ * IE 9+ support
+ * 
+ * @author Gaëtan Bonnot
+ * @see @GaetanBt on Twitter
+ * @see gaetanbt.com
+ *
+ * @lastmodified May 2nd 2014
+ * @note added some specific selectors to let IE8 show the standard checkbox
+*/
+@import url(https://fonts.googleapis.com/css?family=Ubuntu);
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.checkbox_wrapper {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  height: 50px;
+  position: relative;
+}
+
+label {
+  display: block;
+  width: 100%;
+}
+
+.checkbox_list:checked + .custom,
+.checkbox_list:not(:checked) + .custom {
+  background: #806f6e;
+  left: 1px;
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  transition: all 0.3s ease;
+  width: 37px;
+  z-index: 10;
+}
+
+.checkbox_list:checked,
+.checkbox_list:not(:checked) {
+  opacity: 0;
+}
+
+.checkbox_list:checked + .custom {
+  background: #2ecc71;
+  left: 38px;
+}
+
+svg {
+  filter: drop-shadow(1px 1px 1px #000);
+  position: absolute;
+  z-index: 1;
+}
+
+.true_icon {
+  fill: #2ecc71;
+  left: 8px;
+  top: 8px;
+}
+
+.false_icon {
+  fill: #806f6e;
+  right: 8px;
+  top: 9px;
+}/*# sourceMappingURL=index.css.map */
