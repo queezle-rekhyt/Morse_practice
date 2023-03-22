@@ -376,7 +376,7 @@
     <label for="checkbox_all">
       <div class="checkbox_wrapper" style="width:100px">
         <input type="checkbox" id="checkbox_all" class="checkbox_list" checked="checked" onclick="reWrite()">
-        <span class="custom" id="span-now" style="text-align:center;width:60px;line-height: 3.0;">全選択</span>
+        <span class="custom" id="span-now" style="text-align:center;width:60px;font-size:16px;line-height:3.0">全選択</span>
           
           <!-- True icon -->
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 32 32" class="true_icon">
@@ -390,12 +390,9 @@
       </div> 
     </label> 
       <hr>
-    <table border="1" style="border-collapse: collapse; line-height:3.0;width:100% ">
+    <table border="1" style="border-collapse: collapse;font-size:25px;width:100%;line-height:2.0">
       <tbody>
           <tr>
-              <!-- <td><label for="checkbox7">
-              <div class="checkbox_wrapper" >
-                <input type="checkbox" id="checkbox7" class="checkbox_list" name="" value="ア" checked></td> -->
               <td><label for="checkbox1">
                 <div class="checkbox_wrapper" >
                   <input type="checkbox" id="checkbox1" class="checkbox_list" name="" value="ア" checked>
@@ -1552,9 +1549,9 @@ function change_all() {
             //mapの結果がjQueryオブジェクトの配列で返ってくるので、get()で生配列を取得する。
             //console.log(area);
             //['kantou','touhoku']のような形で取得できる。
-            console.log(area.join(''));
+            console.log(area.join('').replace(/o/g, '').replace(/n/g, ''));
 
-            var S = area.join('');
+            var S = area.join('').replace(/o/g, '').replace(/n/g, '');
             //var S="イロハニホヘトチリヌルヲワカヨタレソツネナラムウヰノオクヤマケフコエテアサキユメミシヱヒモセスン（ー」？、゛゜）１２３４５６７８９０"
             var rand_str = 'クンクンクンホレ\n';
             
