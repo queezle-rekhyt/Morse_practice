@@ -200,7 +200,7 @@
         this.eff = 17;
         this.ews = 0;           // extra word space
         this.freq = 600;
-        this.volume = 0.5;      // relative volume how CW is generated internally
+        this.volume = 10;      // relative volume how CW is generated internally
         this.playvolume = 2;    // player volume (relative * player volume = total volume)
         this.yomiage = 1.3;
         this.q = 10;
