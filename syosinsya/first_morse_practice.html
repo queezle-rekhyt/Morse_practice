@@ -166,22 +166,43 @@
     <script>
     var textModMsg = document.getElementById('running');
     $('.button_list').click(function(){
-    var selectNo = $(this).val();
+      var selectNo = $(this).val();
+      run_process(selectNo);
+})
+
+
+// int1とint2に値をセットする関数
+async function set_int1(selectNo){
     //alert(selectNo);
     textModMsg.innerHTML = "　";
     if (document.getElementById('hu').checked) {
         textModMsg.innerHTML = selectNo;
         m.play(selectNo);
     }
+  return true;
+}
+
+async function set_int2(selectNo){
     if (document.getElementById('go').checked) {
         sleep(2500);
         gotyo(selectNo)
     }
+  return true;
+}
+
+async function set_int3(selectNo){
     if (document.getElementById('tu').checked) {
-        sleep(3000);
         yomiage(selectNo)
     }
-})
+  return true;
+}
+
+async function run_process(selectNo){
+  await set_int1(selectNo)
+  await set_int2(selectNo)
+  await set_int3(selectNo)
+}
+
 
 function gotyo(selectNo){
     if ('speechSynthesis' in window) {
