@@ -221,7 +221,7 @@
         this.textStart = 0;     // time when the actual text starts (without "vvv +" or startDelay, if activated)
         this.textEnd   = Number.MAX_VALUE;     // time when the actual text ends (i.e. without the "+")
         this.showSettings = false;
-        this.startDelay = 1;    // delay in seconds before audio starts
+        this.startDelay = 0;    // delay in seconds before audio starts
         this.prosign = false;   // we're within a prosign (no letter spaces)
         this.finishedTimeout = null;
         var moji_count;

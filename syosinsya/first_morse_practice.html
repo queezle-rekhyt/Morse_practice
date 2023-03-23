@@ -177,23 +177,24 @@ async function set_int1(selectNo){
     textModMsg.innerHTML = "　";
     if (document.getElementById('hu').checked) {
         textModMsg.innerHTML = selectNo;
-        m.play(selectNo);
+        await m.play(selectNo);
+        return true;
     }
-  return true;
 }
 
 async function set_int2(selectNo){
     if (document.getElementById('go').checked) {
-        gotyo(selectNo)
+        await gotyo(selectNo)
+        return true;
     }
-  return true;
 }
 
 async function set_int3(selectNo){
     if (document.getElementById('tu').checked) {
-        yomiage(selectNo)
+        await yomiage(selectNo)
+        return true;
     }
-  return true;
+
 }
 
 async function run_process(selectNo){
