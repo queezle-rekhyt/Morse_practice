@@ -184,7 +184,6 @@ async function set_int1(selectNo){
 
 async function set_int2(selectNo){
     if (document.getElementById('go').checked) {
-        sleep(2500);
         gotyo(selectNo)
     }
   return true;
@@ -238,14 +237,6 @@ function yomiage(selectNo){
     } else {
         alert('大変申し訳ありません。このブラウザは音声合成に対応していません。')
     }
-}
-
-
-function sleep(waitMsec) {
-  var startMsec = new Date();
- 
-  // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
-  while (new Date() - startMsec < waitMsec);
 }
 
     </script>
