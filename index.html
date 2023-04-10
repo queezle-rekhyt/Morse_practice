@@ -360,7 +360,41 @@
     <!-- <button onclick = "rensyu()">
     書き取り練習
     </button> -->
-    <label id="hunmoji" style="float:left;">０文字／分</label>
+    <div id="hunmoji" style="float:left;margin-right:100px">０文字／分</div>
+    <div style="float:left;">
+      <select id="sokudo">
+        <option value="30-28">平均100文字／分、30WpM、間隔2</option>
+        <option value="30-24">平均90文字／分、30WpM、間隔6</option>
+        <option value="28-25">平均90文字／分、28WpM、間隔3</option>
+        <option value="26-26">平均90文字／分、26WpM、間隔0</option>
+        <option value="28-21">平均80文字／分、28WpM、間隔7</option>
+        <option value="25-22">平均80文字／分、25WpM、間隔3</option>
+        <option value="23-23">平均80文字／分、23WpM、間隔0</option>
+        <option value="29-17">平均70文字／分、29WpM、間隔12</option>
+        <option value="25-18">平均70文字／分、25WpM、間隔7</option>
+        <option value="21-20">平均70文字／分、21WpM、間隔1</option>
+        <option value="28-14">平均60文字／分、28WpM、間隔14</option>
+        <option value="27-14">平均60文字／分、27WpM、間隔13</option>
+        <option value="23-15" selected>平均60文字／分、23WpM、間隔8</option>
+        <option value="20-16">平均60文字／分、20WpM、間隔4</option>
+        <option value="18-17">平均60文字／分、18WpM、間隔1</option>
+        <option value="29-11">平均50文字／分、29WpM、間隔18</option>
+        <option value="22-12">平均50文字／分、22WpM、間隔10</option>
+        <option value="18-13">平均50文字／分、18WpM、間隔5</option>
+        <option value="15-14">平均50文字／分、15WpM、間隔1</option>
+        <option value="22-9">平均40文字／分、22WpM、間隔13</option>
+        <option value="16-10">平均40文字／分、16WpM、間隔6</option>
+        <option value="13-11">平均40文字／分、13WpM、間隔2</option>
+        <option value="28-6">平均30文字／分、28WpM、間隔22</option>
+        <option value="27-6">平均30文字／分、27WpM、間隔21</option>
+        <option value="24-6">平均30文字／分、24WpM、間隔18</option>
+        <option value="15-7">平均30文字／分、15WpM、間隔8</option>
+        <option value="10-8">平均30文字／分、10WpM、間隔2</option>
+        <option value="20-4">平均20文字／分、20WpM、間隔16</option>
+        <option value="9-5">平均20文字／分、9WpM、間隔4</option>
+        <option value="6-6">平均20文字／分、6WpM、間隔0</option>
+      </select>
+    </div>
     <br>
     <div id="player"></div>
     <script>

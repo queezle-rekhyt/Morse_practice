@@ -1606,6 +1606,7 @@
 
             //var eff_label = document.createElement("label");
             eff_label.htmlFor = "eff";
+            eff_label.id="efflabel";
             //eff_label.style.fontSize = "16px";
             eff_label.innerHTML = "0 WpM";
             
@@ -1807,6 +1808,23 @@
             el.appendChild(btn_ran);
             //el.appendChild(l);
             this.el = el;
+
+             //セレクトボックスで速度設定
+            var select = document.getElementById('sokudo');
+            select.onchange = function(){
+            let sokudo_kankaku = this.value.split('-');
+            document.getElementById( "speed" ).value = sokudo_kankaku[0];
+            document.getElementById( "eff" ).value = sokudo_kankaku[1];
+            document.getElementById("speeder").innerText = sokudo_kankaku[0]+' WpM';
+            document.getElementById("efflabel").innerText = "X"+(sokudo_kankaku[0]-sokudo_kankaku[1]);
+            
+            obj.setWpm(sokudo_kankaku[0]);
+            obj.setEff(sokudo_kankaku[1])
+            speed.value = sokudo_kankaku[0];;
+            eff.max = speed.value;
+            eff.value= sokudo_kankaku[1];
+            eff_label.innerHTML = "X"+(speed.value-eff.value);
+            }
         }
 
         this.toggle_settings = function () {
