@@ -355,7 +355,7 @@
           <td>　</td>
         </tr>
       </table>
-    <textarea id="textarea3" class="test" cols="45px" rows="5px" name="content" required="required" style="margin-top:3px">クンクンクンホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウ井ノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー┗？ゝ゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウ井ノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー┗？ゝ゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウ井ノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー┗？ゝ゛゜）１２３４５６７８９０イロ</textarea>
+    <textarea id="textarea3" class="test" cols="45px" rows="5px" name="content" required="required" style="margin-top:3px">ホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウ井ノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー┗？ゝ゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウ井ノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー┗？ゝ゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウ井ノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー┗？ゝ゛゜）１２３４５６７８９０イロ</textarea>
 <br>
     <!-- <button onclick = "rensyu()">
     書き取り練習
@@ -405,7 +405,7 @@
     <br>
     <div id="player"></div>
     <script>
-    var m = new jscw({"wpm": 23,"ews":0.5,"eff":15});
+    var m = new jscw({"wpm": 23,"ews":0.5,"eff":15,"startDelay":2});
     m.renderPlayer('player', m);
     </script>
     <hr>
@@ -1594,7 +1594,7 @@ function change_all() {
 
             var S = area.join('').replace(/o/g, '').replace(/n/g, '');
             //var S="イロハニホヘトチリヌルヲワカヨタレソツネナラムウヰノオクヤマケフコエテアサキユメミシヱヒモセスン（ー」？、゛゜）１２３４５６７８９０"
-            var rand_str = 'クンクンクンホレ\n';
+            var rand_str = 'ホレ\n';
             
             for ( var i = 1; i <= val; i++ ) {
                 rand_str += S.charAt(Math.floor(Math.random() * S.length));
@@ -1622,7 +1622,7 @@ function change_all() {
 
         var text = document.getElementsByTagName("textarea")[0];
 
-        text.value="クンクンクンホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウ井ノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー┗？ゝ゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウ井ノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー┗？ゝ゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウ井ノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー┗？ゝ゛゜）１２３４５６７８９０イロ";
+        text.value="ホレ\nイロハニホヘトチリヌルヲワカヨタレソツネ゛゛\nナラムウ井ノオクヤマケフコエテアサキユメ゛゛\nミシヱヒモセスン（ー┗？ゝ゛゜）１２３４゛゛\n５６７８９０イロハニホヘトチリヌルヲワカ゛゛\nヨタレソツネナラムウ井ノオクヤマケフコエ゛゛\nテアサキユメミシヱヒモセスン（ー┗？ゝ゛゛゛\n゜）１２３４５６７８９０イロハニホヘトチ゛゛\nリヌルヲワカヨタレソツネナラムウ井ノオク゛゛\nヤマケフコエテアサキユメミシヱヒモセスン゛゛\n（ー┗？ゝ゛゜）１２３４５６７８９０イロ";
         var textModMsg = document.getElementById('running');
         textModMsg.innerHTML = "　";
         }
